@@ -1,0 +1,42 @@
+/**
+*Effects for producing CSS animations
+*/
+
+//mixin that toggles the adds a toggle effect by applying a transform-active class
+//needs class .has-transform to work with Javascript
+@mixin kw-e-transform-toggle( $styles: (), $event: ''){
+	@content;
+	transition: $default-transition;
+
+	@if( map-has-key( $breakpoints, $event ) ) {
+
+		@include breakpoint( $event ) {
+
+			@each $p, $v in $styles {
+				#{$p}: $v;
+			}
+
+		}
+
+	}@else if( $event == 'hover' ){
+
+		&:hover,
+		&:focus{
+
+			@each $p, $v in $styles {
+				#{$p}: $v;
+			}
+		}
+
+	}@else{
+
+		&.has-transform.transform-active{
+			@each $p, $v in $styles {
+				#{$p}: $v;
+			}
+		}
+
+	}
+
+
+}

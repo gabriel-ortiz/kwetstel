@@ -1,0 +1,47 @@
+<?php
+namespace ITBL\ExampleBlock;
+/**
+ * This is an example template with comments on what do do
+ *
+ * @return void
+ */
+
+function setup(){
+	$n = function( $function ){
+		return __NAMESPACE__ . '\\' . $function;
+	};
+
+	//add the hooks and filters here
+	//add_action( "init", $n("register_block") );
+}
+
+function register_block() {
+	// check function exists
+	if( function_exists('acf_register_block_type') ) {
+		$block_registered = acf_register_block_type( array(
+				'name'              => '',
+				'title'             => __(''),
+				'description'       => __(''),
+				'render_callback'   => __NAMESPACE__ . '\\' .'block',
+				'category'          => 'formatting',
+				'icon'              => 'list-view',
+				'align'             => 'full',
+				'mode'              => 'auto',
+				'keywords'          => array(),
+				'supports'			=> array(
+					'align'	=> false,
+				),
+				'enqueue_assets'    => function(){}
+			)
+		);
+	}
+}
+function block( $block, $content, $is_preview, $post_id  ){
+
+	?>
+
+
+
+	<?php
+}
+return __NAMESPACE__;

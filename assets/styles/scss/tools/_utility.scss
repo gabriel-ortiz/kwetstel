@@ -1,0 +1,455 @@
+/*
+ * Utility Classes
+ *
+ * These are helpful, single (or limited) purpose, classes 
+ * usually created for the styles you apply the most.
+ * You can include them in your markup or use @extend to 
+ * extend them to various components in your CSS.
+ *
+ * NOTE: Utility classes are always prefixed with `kw-u-`.
+ */
+@import "../_settings.scss";
+// Spacing
+// --------------------------------------- /
+.kw-u-mt-nudge { margin-top: $spacer/3 !important; }
+.kw-u-mb-nudge { margin-bottom: $spacer/3 !important; }
+.kw-u-ml-nudge { margin-left: $spacer/3 !important; }
+.kw-u-mr-nudge { margin-right: $spacer/3 !important; }
+.kw-u-my-nudge { margin-top: $spacer/3 !important; margin-bottom: $spacer/3 !important; }
+.kw-u-my-nudge { margin-top: $spacer/3 !important; margin-bottom: $spacer/3 !important; }
+.kw-u-mx-nudge { margin-left: $spacer/3 !important; margin-right: $spacer/3 !important; }
+.kw-u-pt-nudge { padding-top: $spacer/3 !important; }
+.kw-u-pb-nudge { padding-bottom: $spacer/3 !important; }
+.kw-u-pr-nudge { padding-right: $spacer/3 !important; }
+.kw-u-pl-nudge { padding-left: $spacer/3 !important; }
+.kw-u-py-nudge { padding-top: $spacer/3 !important; padding-bottom: $spacer/3 !important; }
+.kw-u-px-nudge { padding-left: $spacer/3 !important; padding-right: $spacer/3 !important; }
+
+@for $i from 0 through 8 {
+    $val: $spacer * $i;
+    .kw-u-ma-#{$i} { margin: $val !important; }
+    .kw-u-mt-#{$i} { margin-top: $val !important; }
+    .kw-u-mr-#{$i} { margin-right: $val !important; }
+    .kw-u-mb-#{$i} { margin-bottom: $val !important; }
+    .kw-u-ml-#{$i} { margin-left: $val !important; }
+    .kw-u-mx-#{$i} { margin-left: $val !important; margin-right: $val !important; }
+    .kw-u-my-#{$i} { margin-top: $val !important; margin-bottom: $val !important; }
+    .kw-u-pa-#{$i} { padding: $val !important; }
+    .kw-u-pt-#{$i} { padding-top: $val !important; }
+    .kw-u-pr-#{$i} { padding-right: $val !important; }
+    .kw-u-pb-#{$i} { padding-bottom: $val !important; }
+    .kw-u-pl-#{$i} { padding-left: $val !important; }
+    .kw-u-px-#{$i} { padding-left: $val !important; padding-right: $val !important; }
+    .kw-u-py-#{$i} { padding-top: $val !important; padding-bottom: $val !important; }
+}
+
+.kw-u-no-margin{ margin: 0 };
+
+
+// Typography
+// --------------------------------------- /
+.kw-u-weight-light { font-weight: 300 !important; }
+.kw-u-weight-normal { font-weight: 400 !important; }
+.kw-u-weight-medium { font-weight: 500 !important; }
+.kw-u-weight-bold { font-weight: 700 !important; }
+.kw-u-caps { text-transform: uppercase !important; }
+.kw-u-capitalize{  text-transform: capitalize !important;}
+.kw-u-font-size-sm { font-size: 85% !important; }
+.kw-u-font-size-nrml{ font-size: 100% !important;}
+.kw-u-font-size-lg { font-size: 125% !important; }
+.kw-u-font-size-xl { font-size: 150% !important; }
+.kw-u-font-size-xxl { font-size: 200% !important; }
+.kw-u-font-size-xxxl { font-size: 300% !important; }
+.kw-u-text-left { text-align: left !important; }
+.kw-u-text-center { text-align: center !important; }
+.kw-u-text-right { text-align: right !important; }
+.kw-u-tight-line-height{ line-height: 1; }
+.kw-u-medium-line-height{ line-height: 1.2;}
+
+
+// Lists
+// ------------------------------------------ /
+.kw-u-clean-list {
+    margin: 0; padding: 0;
+    list-style: none !important;
+}
+
+
+.kw-u-faded {
+    opacity: $faded;
+}
+
+
+
+// Display
+// ------------------------------------------ /
+.kw-u-display-block { display: block !important; }
+.kw-u-display-none { display: none !important; }
+.kw-u-display-inline { display: inline !important; }
+.kw-u-display-inline-block { display: inline-block !important; }
+
+// Alignment **note these are wordpress classes**
+// ------------------------------------------ /
+.aligncenter{
+    margin: 0 auto;
+    display: block;
+}
+
+// Full height and width
+// ------------------------------------------ /
+.kw-u-height-full {
+    height: 100%;
+}
+.kw-u-width-full {
+    width: 100%;
+}
+
+// Flexbox
+// ------------------------------------------ /
+.kw-u-align-self-end {
+    align-self: flex-end;
+}
+
+.kw-u-align-self-start {
+    align-self: flex-start
+}
+
+.kw-u-flex-grow-1 {
+    flex-grow: 1;
+}
+
+// Effects
+// ------------------------------------------ /
+.kw-u-transition {
+    transition: all $duration $easing;
+}
+.kw-u-transition-short {
+    transition: all $duration-short $easing;
+}
+.kw-u-transition-long {
+    transition: all $duration-long $easing;
+}
+
+
+$play-icon-unit : 1rem;
+
+// Play Icon
+// ------------------------------------------ /
+.kw-u-icon-play {
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    border-radius: 50%;
+    width: $play-icon-unit*3;
+    height: $play-icon-unit*3;
+    box-sizing: content-box;
+    z-index: 2;
+
+    &:before{
+        @extend .kw-u-transition;
+        content: '';
+        position: absolute;
+        left: 0; top: 0; right: 0; bottom: 0;
+        display: block;
+        background: rgba( get-color(white) ,.3);
+        border-radius: 50%;
+    }
+
+    &:after{
+
+        content: url('../images/dist/icon-play-arrow.svg');
+        position: absolute;
+        display: block;
+        width: 40%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-40%,-36%);
+    }
+
+
+
+    &:hover,
+    &:focus{
+
+        &:before{
+            //left: -6px; top: -6px; right: -6px; bottom: -6px;
+            margin: -1 * ($play-icon-unit/2);
+        }
+    }
+
+
+}
+
+
+// circle Icon CTA
+// ------------------------------------------ /
+
+@mixin circle-icon-cta(){
+    @content;
+    position: relative;
+    box-sizing: border-box;
+
+    & > * {
+        z-index: 5;
+    }
+
+    &:before{
+        @extend .kw-u-transition;
+        content: '';
+        position: absolute;
+        left: 0; top: 0; right: 0; bottom: 0;
+        display: block;
+        background: rgba(255,255,255,.3);
+        border-radius: 50%;
+    }
+
+    &:hover,
+    &:focus{
+
+        &:before{
+            //left: -6px; top: -6px; right: -6px; bottom: -6px;
+            margin: -1 * ($play-icon-unit/2);
+        }
+    }
+
+
+}
+
+
+// Box Shadow
+// ------------------------------------------ /
+
+.kw-u-box-shadow{
+    box-shadow: $focus-box-shadow-lg;
+}
+
+// Wave footer
+// ------------------------------------------ /
+.kw-u-footer-wave{
+
+    position: relative;
+    padding-bottom: 50px;
+
+    @include breakpoint(medium){
+        padding-bottom: 160px;
+    }
+
+
+    &:before{
+        content: url('../images/dist/hero-wave-base.svg');
+        position: absolute;
+        width: 100%;
+        bottom: -13px;
+        display: block;
+    }
+}
+
+.kw-u-footer-wave--gray{
+
+    position: relative;
+    padding-bottom: 50px;
+
+    @include breakpoint(medium){
+        padding-bottom: 130px;
+    }
+
+
+    &:before{
+        content: url('../images/dist/hero-wave-base--gray.svg');
+        position: absolute;
+        width: 100%;
+        bottom: -13px;
+        display: block;
+    }
+}
+
+
+// Pseudo Mixin
+// ------------------------------------------ /
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+
+// Arrow Mixin
+// ------------------------------------------ /
+@mixin css-arrow($color:$white, $direction:'up', $size: 6px, $position: absolute, $round: false){
+    @include pseudo($pos: $position);
+    width: 0;
+    height: 0;
+    @if $round {
+        border-radius: $global-radius;
+    }
+    @if $direction == down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round( $size / 2.5 );
+    } @else if $direction == up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round( $size / 2.5 );
+    } @else if $direction == right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    } @else if  $direction == left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+}
+
+
+// Create font color classes
+// ------------------------------------------ /
+@each $name, $color in $foundation-palette {
+
+    .kw-u-font-color--#{$name} {
+
+        &:not(a),
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6
+        {
+            color: get-color($name);
+        }
+
+    }
+
+}
+
+@mixin set-header-colors( $color ){
+    @content;
+    & *:not(a,  .button, label),
+    & .h1,
+    & .h2,
+    & .h3,
+    & .h4,
+    & .h5,
+    & .h6,
+    & h1,
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6
+    {
+        color: get-color( $color ) !important;
+    }
+}
+
+
+// Hero Background Colors map
+// ------------------------------------------ /
+@each $name, $color in $foundation-palette {
+
+    .kw-c-hero--bg-#{$name}{
+        background-color: get-color($name);
+    }
+
+}
+
+
+.kw-u-jump-down{
+    display: block;
+    text-align: center;
+}
+
+// Positioning
+// ------------------------------------------ /
+@mixin position($position, $args) {
+    @each $o in top right bottom left {
+        $i: index($args, $o);
+        @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+            #{$o}: nth($args, $i + 1);
+        }
+    }
+    position: $position;
+}
+
+// Positioning helpers
+@mixin absolute($args: '') {
+    @include position(absolute, $args);
+}
+
+@mixin fixed($args: '') {
+    @include position(fixed, $args);
+}
+
+@mixin relative($args: '') {
+    @include position(relative, $args);
+}
+
+//Absolute positioning centering
+@mixin abs-centerer($horizontal: true, $vertical: true) {
+    position: absolute;
+    @if ($horizontal and $vertical) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } @else if ($horizontal) {
+        left: 50%;
+        transform: translate(-50%, 0);
+    } @else if ($vertical) {
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+@mixin shadow-gradient(){
+
+    @content;
+    position: relative;
+    width: 100%;
+
+    & > * {
+        position: relative;
+        z-index: 3;
+    }
+
+    &:before{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0,0,0, .1 ), rgba(0,0,0,.4 ) );
+        z-index: 2;
+        top: 0;
+    }
+
+}
+
+.kw-u-bg-overlay{
+    @include shadow-gradient();
+}
+
+// divider line
+// ------------------------------------------ /
+@mixin line-divider( $color : 'primary', $width : 100%  ){
+    background-color: get-color($color);
+    width: $width;
+    display: inline-block;
+    height: 1px;
+    margin: $spacer/3 0;
+}
+
+.kw-u-divider{
+    @include line-divider();
+
+}
