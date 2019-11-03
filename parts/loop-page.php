@@ -18,6 +18,5 @@
 		 <?php wp_link_pages(); ?>
 	</footer> <!-- end article footer -->
 						    
-	<?php comments_template(); ?>
-					
+	
 </article> <!-- end article -->

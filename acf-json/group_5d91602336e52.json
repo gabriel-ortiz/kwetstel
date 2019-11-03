@@ -1,0 +1,81 @@
+{
+    "key": "group_5d91602336e52",
+    "title": "Block : 1 Column",
+    "fields": [
+        {
+            "key": "field_5d91614f4d195",
+            "label": "Block Title",
+            "name": "kw_block__title",
+            "type": "text",
+            "instructions": "This is very important! This title will be the hash anchor for this section in the page",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5d9161b04d196",
+            "label": "Call to Action",
+            "name": "kw_block__cta",
+            "type": "wysiwyg",
+            "instructions": "Optional: place any very important summary or call-to-actions in this space.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5d9161f94d197",
+            "label": "Block Main Content",
+            "name": "kw_block__1_col_main",
+            "type": "wysiwyg",
+            "instructions": "This is the main content area, where most of the copy will go",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "66",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/kw-1-column"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1569809912
+}

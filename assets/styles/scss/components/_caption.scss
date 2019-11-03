@@ -1,0 +1,16 @@
+.wp-caption{
+	border-radius: $global-radius;
+	box-sizing: border-box;
+	padding: $spacer/3;
+	
+	& > img{
+		border-radius: $global-radius;
+	}
+	
+	.wp-caption-text{
+		@extend .kw-u-capitalize;
+		@extend .kw-u-weight-medium;
+		font-style: oblique;
+	}
+	
+}

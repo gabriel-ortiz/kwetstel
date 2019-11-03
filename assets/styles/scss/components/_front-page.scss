@@ -1,0 +1,61 @@
+ .front-page-hero{
+	 position: relative;
+	 background-color: get-color(primary);
+	 height: 60vh;
+
+	 box-sizing: border-box;
+	 
+	 @include breakpoint(medium){
+		 height: 80vh;
+		 padding: $spacer*2 0;
+	 }
+	 
+ }
+ 
+ .kw-front-page__title-wrapper{
+	 position: relative;
+	 
+	 @include breakpoint(medium){
+		 position: absolute;
+		 right: 0;
+		 top: $spacer;
+		 max-width: 33%;
+		 min-height: 250px;
+		 padding: $spacer*2;
+		 box-sizing: border-box;
+		 background-color: rgba( get-color(white), .85 );
+		 text-align: right;
+		 z-index: 1;
+		 
+	 }
+	 
+	 .kw-font-page__title{
+		
+	 }
+	 
+	 .kw-front-page__summary{
+		 color: get-color(secondary);
+		 text-transform: uppercase;
+		 @extend .kw-u-weight-bold;
+	 }
+	 
+ }
+
+ .kw-front-page__continue{
+	 @extend .kw-u-transition;
+	 position: absolute;
+	 color: get-color(black);
+	 bottom: 0;
+	 right: $spacer*3;
+	 background-color: get-color(white);
+	 padding: $spacer;
+	 box-sizing: border-box;
+	 text-transform: Capitalize;
+	 font-weight: bold;
+	 font-size: $font-xl;
+	 
+	 .fas{
+		 animation-iteration-count: 5;
+	 }
+	 
+ }

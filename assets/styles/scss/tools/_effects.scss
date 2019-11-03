@@ -1,0 +1,8 @@
+$translate : 50px;
+
+
+.js-e-gsap__self-slideup--onload{
+	
+	opacity:  0;
+	transform: translateY( $translate );
+}

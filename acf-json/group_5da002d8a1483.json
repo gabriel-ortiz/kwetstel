@@ -1,0 +1,102 @@
+{
+    "key": "group_5da002d8a1483",
+    "title": "Sidebar : Page",
+    "fields": [
+        {
+            "key": "field_5da002ee67306",
+            "label": "Page Sidebar Content",
+            "name": "kw_page__sidebar",
+            "type": "repeater",
+            "instructions": "Use this this sidebar to show extra contextual information without breaking the flow of your document. IMPORTANT: There is a shortcode that accompanies this metabox. \r\n\r\nie. `[sidebar id=\"#\"]Name of Link[\/sidebar]`\r\n\r\nThis will only work if the ID passed into sidebar matches the ID in the sidebar generator",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5da0053867307",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add Another Sidebar",
+            "sub_fields": [
+                {
+                    "key": "field_5da0053867307",
+                    "label": "Sidebar ID",
+                    "name": "kw_page__sidebar_id",
+                    "type": "text",
+                    "instructions": "Enter the ID created from the shortcode",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5da0057367308",
+                    "label": "Sidebar Title (Optional)",
+                    "name": "kw_page__sidebar_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5da0058d67309",
+                    "label": "Sidebar Content",
+                    "name": "kw_page__sidebar_content",
+                    "type": "wysiwyg",
+                    "instructions": "Enter the content for your sidebar. Insert whatever you want!!!",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1571185319
+}

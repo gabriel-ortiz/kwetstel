@@ -73,6 +73,7 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 require_once 	COMPOSER_PATH . 'autoload.php';
 require_once 	KW_INC . 'helpers.php';
 include 		KW_INC . 'libraries/html.php' ;
+require_once    KW_INC . 'theme-settings.php';
 
 
 //determine Local/Prod
@@ -88,3 +89,12 @@ require_once	KW_FN . 'gutenberg.php';
 KW\Includes\AjaxCB\setup();
 KW\Includes\Shortcodes\setup();
 KW\Functions\Gutenberg\setup();
+KW\Includes\ThemeSettings\setup();
+
+/*
+ * Load all blocks
+ */
+
+load_blocks( 'parts/layout-blocks' );
+	
+	remove_filter ('the_content', 'wpautop');

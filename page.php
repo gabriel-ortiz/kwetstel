@@ -1,30 +1,50 @@
-<?php 
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- */
+<?php
+	/**
+	 * The template for displaying all pages
+	 *
+	 * This is the template that displays all pages by default.
+	 */
+	global $post;
+	
+	get_header(); ?>
 
-get_header(); ?>
-	
-	<div class="content">
-	
-		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-	
-		    <main class="main small-12 large-8 medium-8 cell" role="main">
+	<main id="kw-c-content" class="content">
+		
+		<?php while ( have_posts() ) : the_post(); ?>
+			
+			<?php
+			
+			$thumb_url  = get_the_post_thumbnail_url( $post, 'full' );
+			$hero_class = ( $thumb_url ) ? 'kw-c-hero kw-c-hash-img' : 'kw-c-hero';
+			$excerpt    = get_the_excerpt();
+			$metadata   = get_fields();
+
+			
+			?>
+			<section id="page-hero" class="<?php echo $hero_class ?>" style="background-image:url(<?php echo esc_url( $thumb_url ); ?>)">
 				
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<div class="grid-container">
+					
+					<div class="grid-x align-center-middle kw-c-hero__inner text-center">
+						
+						<?php the_title( '<h1 class=" cell small-12 medium-10 large-8 kw-c-hero__title js-e-gsap__self-slideup--onload">', '</h1>' ); ?>
+						
+						<?php if( $excerpt ):?>
 
-			    	<?php get_template_part( 'parts/loop', 'page' ); ?>
-			    
-			    <?php endwhile; endif; ?>							
-			    					
-			</main> <!-- end #main -->
+							<div class="cell small-12 medium-10 large-8 kw-c-hero__excerpt"><?php echo $excerpt; ?></div>
+						
+						<?php endif; ?>
+						
+					</div>
+					
+				</div>
+				
+			</section>
 
-		    <?php get_sidebar(); ?>
-		    
-		</div> <!-- end #inner-content -->
+			<section <?php post_class( 'kw-c-main' ) ?> aria-label="<?php the_title(); ?>" role="main"><?php the_content(); ?></section> <!-- end #main -->
+		
+		<?php endwhile; ?>
 
-	</div> <!-- end #content -->
+	</main> <!-- end #content -->
 
 <?php get_footer(); ?>

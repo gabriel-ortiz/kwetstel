@@ -1,0 +1,109 @@
+.kw-c-timeline{
+
+}
+
+.kw-c-timeline__inner-wrapper{
+	position: relative;
+	padding: $spacer;
+	
+	&:before{
+		@extend .kw-u-transition;
+		content: '';
+		position: absolute;
+		top: 0;
+		margin-left: -1px;
+		height: 100%;
+		background: get-color(medium-gray);
+		z-index: 1;
+		left: 32px;
+		width: 2px;
+		
+		@include breakpoint( large){
+			left: 50% !important;
+			width: 2px;
+
+		}
+		
+	}
+	
+	ul{
+		position: relative;
+		overflow: hidden;
+		@extend .kw-u-clean-list;
+		display: flex;
+		flex-direction: column;
+		
+		//@include breakpoint(medium){
+		//	width: 100%;
+		//	margin-bottom: 30px;
+		//}
+		
+	}
+	
+}
+
+.kw-c-timeline__block{
+	@extend .kw-u-transition;
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	clear: both;
+	margin-top: $spacer;
+	box-sizing: border-box;
+	
+	@include breakpoint(large){
+		width: 50%;
+		
+	}
+	
+	&:nth-child(odd){
+		
+		@include breakpoint(large){
+
+			align-self: flex-start;
+			text-align: right;
+			right: -8px;
+			
+			.marker{
+				order: 2;
+			}
+		}
+		
+
+	}
+	
+	&:nth-child(even){
+		align-self: flex-end;
+		
+		@include breakpoint(large){
+			left: -8px;
+			
+		}
+		
+	}
+	
+	.marker{
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border: 2px solid get-color(white);
+		background: get-color(salmon);
+		margin-top: 10px;
+		z-index: 2;
+		flex: 1 0 16px;
+	}
+	
+	.kw-c-timeline__content{
+		padding: 0 $spacer/2;
+	}
+	
+	.kw-c-timeline__subtitle{
+		color: get-color(secondary);
+		@extend .kw-u-weight-bold;
+		
+	}
+	
+
+}
+

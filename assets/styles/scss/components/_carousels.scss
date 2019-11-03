@@ -1,0 +1,180 @@
+.kw-c-carousel{
+
+	.slick-list{
+		overflow: visible;
+	}
+	
+	.slick-slide{
+	@extend .kw-u-transition;
+	}
+	
+}
+
+
+.kw-c-col__promo {
+	
+	position: relative;
+	z-index: 2;
+	
+}
+
+.kw-c-carousel__action{
+	
+	.kw-c-carousel__arrow{
+		@extend .kw-u-transition;
+		min-height: 45px;
+		min-width: 45px;
+		padding: $spacer/2;
+		box-sizing: border-box;
+		border: 1px solid get-color( primary );
+		color: get-color(primary);
+		border-radius: $global-radius;
+		font-size: $font-lg;
+		
+		&:hover{
+			background-color: rgba( get-color(light-blue), .5 );
+		}
+		
+		
+		&:not(:first-of-type){
+			margin-left: $spacer/2;
+		}
+	}
+}
+.kw-c-carousel__wrapper{
+
+}
+
+.kw-c-carousel__action{
+
+}
+
+.kw-c-carousel__content{
+
+}
+
+.kw-c-carousel__slides{
+
+}
+
+
+.kw-c-carousel__slide{
+	padding: $spacer;
+	box-sizing: border-box;
+	
+	& > .grid-x{
+		border-radius: $global-radius;
+		overflow: hidden;
+	}
+	
+}
+
+
+.kw-c-carousel__img{
+	background-color: get-color(light-gray);
+}
+.kw-c-carousel__desc{
+	background-color: get-color(secondary);
+	color: get-color(white);
+	padding: $spacer*.75;
+	
+	.h5{
+		color: get-color(light-blue);
+	}
+	
+}
+
+.kw-is-past {
+	opacity: 0.04;
+	pointer-events: none;
+	}
+
+//$gutter : 18px;
+//
+//// Slick Library styles
+//// ------------------------------------------- //
+//.slick-track {
+//	@extend .kw-u-clearfix;
+//	margin-left: -$gutter/2;
+//	margin-right: -$gutter/2;
+//}
+//
+//// kw Carousel
+//// ------------------------------------------- //
+//.kw-c-carousel {
+//	@extend .kw-u-clearfix;
+//
+//	@include breakpoint(large) {
+//		margin-left: 0;
+//		margin-right: -$gutter;
+//	}
+//
+//	&.kw-is-static {
+//		display: flex;
+//		margin: 0 $gutter / -2;
+//	}
+//}
+//
+//.kw-c-carousel__slide {
+//	float: left;
+//	padding: 0 $gutter/2;
+//	transition: opacity 300ms ease-out;
+//	outline: 0;
+//
+//	.kw-is-static & {
+//		float: none;
+//
+//		&:not(:first-child) {
+//			display: none;
+//		}
+//
+//		@include breakpoint(small) {
+//			&:nth-child(2) {
+//				display: block;
+//			}
+//		}
+//		@include breakpoint(medium) {
+//			&:nth-child(3) {
+//				display: block;
+//			}
+//		}
+//	}
+//
+//	&.kw-is-past {
+//		opacity: 0.05;
+//		pointer-events: none;
+//	}
+//
+//	a {
+//		display: block;
+//	}
+//
+//	img {
+//		display: block;
+//		max-width: 350px;
+//	}
+//
+//	p {
+//		display: block;
+//		max-width: 330px;
+//	}
+//}
+//
+//.kw-c-carousel__paging {
+//	@extend .kw-u-clean-list;
+//	margin-top: $spacer;
+//
+//	li {
+//		display: inline-block;
+//		margin-right: 0.5rem;
+//
+//		&.slick-active button {
+//			background-color: black;
+//		}
+//
+//		button:focus {
+//			box-shadow: $focus-box-shadow-sm;
+//		}
+//	}
+//}
+//

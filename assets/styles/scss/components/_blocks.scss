@@ -1,0 +1,28 @@
+.kw-c-main{
+	
+	& > *{
+		margin-top: $spacer*2;
+		
+		@include breakpoint(medium){
+			margin-top: $spacer*3;
+			
+		}
+		
+	}
+	
+	.kw-c-block{
+		
+		.grid-container{
+			
+			& > div:first-child{
+				
+				padding-top: $spacer*2;
+				border-top: 1px solid get-color(secondary);
+			}
+
+			
+		}
+		
+
+	}
+}

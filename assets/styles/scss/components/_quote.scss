@@ -1,0 +1,88 @@
+.kw-c-quote{
+
+}
+
+.kw-c-quote__wrapper {
+	@extend .kw-u-transition;
+	text-align: center;
+	
+}
+
+.kw-c-quote__body{
+	@extend .kw-u-transition;
+	font-size: $font-xl;
+	font-weight: bold;
+	padding: $spacer 0;
+	position: relative;
+	display: inline-block;
+	
+	
+	p{
+		transition: all 1s ease-in-out;
+		display: inline;
+		background-image: linear-gradient(to right, rgba( get-color(black), 0 ) 50%, get-color(light-blue) 50% );
+		background-size: 200%;
+		background-position: 0 0;
+		
+		&.quote-is-active{
+			background-position: -100% 0;
+		}
+		
+	}
+	
+	
+	&:before{
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		content: "\f10d";
+		position: absolute;
+		left: -40px;
+		top: 0;
+		font-size: $font-xl;
+		color: get-color(hunter-green);
+		
+		@include breakpoint(medium down){
+			left: -10px;
+			font-size: $font-lg;
+		}
+	}
+	
+	&:after{
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		content: "\f10e";
+		position: absolute;
+		right: -40px;
+		bottom: 10px;
+		font-size: $font-xl;
+		color: get-color(hunter-green);
+		
+		@include breakpoint(medium down){
+			right: -10px;
+			font-size: $font-lg;
+			
+		}
+	}
+
+}
+
+.kw-c-quote__author{
+
+	@extend .kw-u-capitalize;
+	font-style: oblique;
+	position: relative;
+	margin: $spacer;
+	padding: $spacer;
+	
+	&:before{
+		display: block;
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 75px;
+		background-color: get-color(secondary);
+		left: 50%;
+		top: 0;
+		transform: translateX(-50%);
+	}
+}

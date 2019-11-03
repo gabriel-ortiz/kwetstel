@@ -1,0 +1,10 @@
+#kw-c-footer{
+	min-height: 200px;
+	background-color: get-color(dark-gray);
+	color: get-color(white);
+	
+	@include breakpoint(medium){
+		min-height: 300px;
+		
+	}
+}

@@ -1,0 +1,69 @@
+$offcanvas-full-screen-bg: get-color(primary);
+$offcanvas-full-screen-side: right;
+$offcanvas-full-screen-closebutton-size: 5rem;
+$menu-sizes: (
+		small   : 100%,
+		medium  : 400px
+);
+
+.kw-c-sidebar {
+	@include off-canvas-base($background: $offcanvas-full-screen-bg, $transition: 0.3s ease-in-out);
+	@include off-canvas-position($position: $offcanvas-full-screen-side, $orientation: vertical , $sizes: $menu-sizes );
+	overflow-y: auto;
+	overflow-x: hidden;
+	
+	color: get-color(white);
+	text-align: justify;
+	.close-button{
+		color: get-color(white);
+		margin-top: $spacer;
+	}
+	
+	
+	
+}
+
+.kw-c-sidebar__wrapper{
+	padding: $spacer;
+	margin-top: $spacer*2;
+	
+
+}
+
+.kw-c-sidebar__inner{
+	display: none;
+
+}
+
+.kw-c-sidebar__title{
+	color: get-color(secondary);
+}
+
+.kw-c-sidebar__content{
+
+}
+
+.kw-c-sidebar__trigger{
+	
+	&.has-content{
+		@extend .kw-u-transition;
+		@extend .kw-u-weight-bold;
+		box-sizing: border-box;
+		display: inline;
+		margin: 0 $spacer/5;
+		padding: $spacer/5 $spacer/3;
+		color: get-color(primary);
+		border-bottom: 1px dashed get-color(hunter-green);
+		
+		&:hover,
+		&:focus{
+			border-color: get-color( secondary );
+			color: get-color(secondary);
+		}
+	}
+
+	
+	p{
+		display: inline;
+	}
+}

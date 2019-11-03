@@ -37,7 +37,7 @@ CSS file.
 @include foundation-breadcrumbs;
 @include foundation-button-group;
 @include foundation-callout;
-@include foundation-card;
+//@include foundation-card;
 @include foundation-close-button;
 @include foundation-menu;
 @include foundation-menu-icon;
@@ -66,14 +66,15 @@ CSS file.
 
 // Import your custom styles
 @import "_global.scss";
-@import "tools/_all.scss";
 @import "elements/_all.scss";
+@import "tools/_all.scss";
 @import "components/_all.scss";
 
 	
 //import slick stylesheets
-@import "../vendors/slick/slick.scss";
 @import "../vendors/slick/slick-theme.scss";
+@import "../vendors/slick/slick.scss";
+
 
 /**
 https://github.com/sass/sass/issues/2378

@@ -1,0 +1,35 @@
+.kw-c-col{
+
+}
+
+.kw-c-block__wrapper{
+
+}
+
+.kw-c-col__promo{
+
+}
+
+.kw-c-block__title{
+	@extend .kw-u-weight-light;
+	@extend .kw-u-medium-line-height;
+	text-transform: uppercase;
+}
+
+.kw-c-cta{
+	color: get-color( secondary );
+	@extend .kw-u-weight-bold;
+	padding-top: $spacer;
+	border-top: 1px solid get-color(medium-gray);
+	
+	
+	@include breakpoint(large){
+		font-size: $font-lg;
+	}
+	
+}
+
+.kw-c-col__main{
+	text-align: justify;
+
+}

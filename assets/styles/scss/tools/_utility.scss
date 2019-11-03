@@ -223,45 +223,6 @@ $play-icon-unit : 1rem;
     box-shadow: $focus-box-shadow-lg;
 }
 
-// Wave footer
-// ------------------------------------------ /
-.kw-u-footer-wave{
-
-    position: relative;
-    padding-bottom: 50px;
-
-    @include breakpoint(medium){
-        padding-bottom: 160px;
-    }
-
-
-    &:before{
-        content: url('../images/dist/hero-wave-base.svg');
-        position: absolute;
-        width: 100%;
-        bottom: -13px;
-        display: block;
-    }
-}
-
-.kw-u-footer-wave--gray{
-
-    position: relative;
-    padding-bottom: 50px;
-
-    @include breakpoint(medium){
-        padding-bottom: 130px;
-    }
-
-
-    &:before{
-        content: url('../images/dist/hero-wave-base--gray.svg');
-        position: absolute;
-        width: 100%;
-        bottom: -13px;
-        display: block;
-    }
-}
 
 
 // Pseudo Mixin
@@ -428,7 +389,7 @@ $play-icon-unit : 1rem;
         position: absolute;
         width: 100%;
         height: 100%;
-        background: linear-gradient(rgba(0,0,0, .1 ), rgba(0,0,0,.4 ) );
+        background: linear-gradient(rgba(0,0,0, .2 ), rgba( get-color( primary ), .6 )  ,rgba(0,0,0,.7 ) );
         z-index: 2;
         top: 0;
     }
@@ -452,4 +413,21 @@ $play-icon-unit : 1rem;
 .kw-u-divider{
     @include line-divider();
 
+}
+
+// Clearfix
+// ------------------------------------- //
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.kw-u-clearfix {
+    @include clearfix;
 }

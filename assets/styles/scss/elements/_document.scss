@@ -1,0 +1,27 @@
+html, body, .off-canvas-wrapper  {
+	width: 100%;
+	height: 100%;
+	
+	.off-canvas-wrapper{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	
+}
+
+.off-canvas-content{
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+#kw-c-content {
+	flex-grow: 1;
+}
+
+#kw-c-top-bar, #kw-c-content, #kw-c-footer {
+	flex-shrink: 0;
+}

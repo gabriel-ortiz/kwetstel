@@ -73,6 +73,9 @@ const SOURCE = {
 	// Place custom JS here, files will be concantonated, minified if ran with --production
 	scripts: 'assets/scripts/js/**/*.js',
 
+	//Gutenberg layout block scripts
+	layoutBlocks: 'assets/scripts/js/layout-blocks/**/*.js',
+
 	//vendor css that can't be concatonated by SCSS
 	vendor_css: [
 		'node_modules/animate.css/animate.min.css',
@@ -159,6 +162,56 @@ gulp.task('scripts', function () {
 
 });
 
+gulp.task('gutenbergScripts', function() {
+
+	// gulp expects tasks to return a stream, so we create one here.
+	var bundledStream = through();
+
+	bundledStream
+	// turns the output bundle stream into a stream containing
+	// the normal attributes gulp plugins expect.
+		.pipe(source('gutenberg-scripts.js'))
+		// the rest of the gulp task, as you would normally write it.
+		// here we're copying from the Browserify + Uglify2 recipe.
+		.pipe(buffer())
+		.pipe(plugin.sourcemaps.init({loadMaps: true}))
+		// Add gulp plugins to the pipeline here.
+		.pipe(ignore.exclude([ "**/*.map" ]))
+		.pipe(uglify().on('error', gutil.log))
+		.pipe(plugin.sourcemaps.write('./'))
+		.pipe(gulp.dest(ASSETS.scripts));
+
+	// "globby" replaces the normal "gulp.src" as Browserify
+	// creates it's own readable stream.
+	globby([SOURCE.layoutBlocks]).then(function(entries) {
+		// create the Browserify instance.
+		var b = browserify({
+			entries: entries,
+			debug: true
+
+		})
+			.transform('babelify',
+				{
+					presets: ["@babel/preset-env"],
+					"ignore": [
+						"__sjcl.js"
+					]
+				});
+
+		// pipe the Browserify stream into the stream we created earlier
+		// this starts our gulp pipeline.
+		b.bundle().pipe(bundledStream);
+	}).catch(function(err) {
+		// ensure any errors from globby are handled
+		bundledStream.emit('error', err);
+	});
+
+	// finally, we return the stream, so gulp knows when this task is done.
+	return bundledStream;
+
+});
+
+
 gulp.task('vendorScripts', function() {
 
 
@@ -239,6 +292,7 @@ gulp.task('browsersync', function () {
 	gulp.watch(SOURCE.styles, gulp.parallel('styles')).on('change', browserSync.reload);
 	gulp.watch(SOURCE.scripts, gulp.parallel('scripts')).on('change', browserSync.reload);
 	gulp.watch(SOURCE.vendorScripts, gulp.parallel('vendorScripts')).on('change', browserSync.reload);
+	gulp.watch(SOURCE.themeScripts, gulp.parallel('gutenbergScripts') ).on('change', browserSync.reload);
 	gulp.watch(SOURCE.images, gulp.parallel('images')).on('change', browserSync.reload);
 
 });
@@ -252,6 +306,9 @@ gulp.task('watch', function () {
 	// Watch scripts files
 	gulp.watch(SOURCE.scripts, gulp.parallel('scripts'));
 
+	//watch exclusively for changes to gutenberg blocks
+	//gulp.watch(SOURCE.scripts, gulp.parallel('gutenbergScripts'));
+
 	// Watch scripts files
 	//gulp.watch(SOURCE.vendorScripts, gulp.parallel('vendorScripts'));
 
@@ -261,4 +318,4 @@ gulp.task('watch', function () {
 });
 
 // Run styles, scripts and foundation-js
-gulp.task('default', gulp.parallel('styles', 'scripts', 'images', 'vendorScripts') );
+gulp.task('default', gulp.parallel('styles', 'scripts', 'images', 'vendorScripts', 'gutenbergScripts') );

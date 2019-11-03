@@ -12,17 +12,9 @@ function site_scripts()
 		filemtime(get_template_directory() . '/assets/scripts/vendor-scripts.js'),
 		true
 	);
+	
 
-	// Adding scripts file in the footer
-	wp_enqueue_script(
-		'main',
-		get_template_directory_uri() . '/assets/scripts/scripts.js',
-		array('jquery'),
-		filemtime(get_template_directory() . '/assets/scripts/scripts.js'),
-		true
-	);
-
-	wp_localize_script('main', 'GO', array(
+	wp_localize_script('main', 'KW', array(
 		'site_url' => site_url('/'),
 		'assets' => KW_ASSETS,
 		'ajax_url' => admin_url('admin-ajax.php'),
@@ -56,7 +48,7 @@ function site_scripts()
 add_action('wp_enqueue_scripts', 'site_scripts', 999);
 
 function only_mount_editor_scripts() {
-	wp_localize_script( 'itbl-gutenberg', 'ITBL', array(
+	wp_localize_script( 'kw-gutenberg', 'KW', array(
 		'site_url' 	        => site_url('/'),
 		'assets' 	        => KW_ASSETS,
 		'ajax_url' 	        => admin_url( 'admin-ajax.php' ),
@@ -73,3 +65,20 @@ function only_mount_editor_scripts() {
 		'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'only_mount_editor_scripts' );
+	
+	/**
+	 * Enqueue frontend and editor JavaScript and CSS
+	 */
+	function both_frontend_and_editor_assets() {
+		// Adding scripts file in the footer
+		wp_enqueue_script(
+			'main',
+			get_template_directory_uri() . '/assets/scripts/scripts.js',
+			array('jquery'),
+			filemtime(get_template_directory() . '/assets/scripts/scripts.js'),
+			true
+		);
+	}
+
+// Hook the enqueue functions into the frontend and editor
+	add_action( 'enqueue_block_assets', 'both_frontend_and_editor_assets', 999 );

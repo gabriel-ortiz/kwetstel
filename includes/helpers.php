@@ -21,7 +21,7 @@ function get_asset( $path ) {
 function get_block( $name, $blockObj = array(), $id = '' ) {
 	//setup path and name variables
 	$block_name = str_replace( '-', '_', $name );
-	$block_path = ITBL_PARTS . 'blocks/' . $block_name . '.php';
+	$block_path = KW_PARTS . 'blocks/' . $block_name . '.php';
 	//check if path exists
 	if ( file_exists( $block_path ) ) {
 		require_once $block_path;
@@ -257,3 +257,25 @@ function load_blocks($dir = null)
 		}
 	}
 }
+	
+	/**
+	 *
+	 * Recursively merges two arrays with options. Although, it could be used for other utilities also
+	 *
+	 * @param $args
+	 * @param $defaults
+	 *
+	 * @return array
+	 */
+	function recursive_parse_args( $args, $defaults ) {
+		$new_args = (array) $defaults;
+		foreach ( $args as $key => $value ) {
+			if ( is_array( $value ) && isset( $new_args[ $key ] ) ) {
+				$new_args[ $key ] = recursive_parse_args( $value, $new_args[ $key ] );
+			}
+			else {
+				$new_args[ $key ] = $value;
+			}
+		}
+		return $new_args;
+	}
