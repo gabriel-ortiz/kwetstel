@@ -1,0 +1,30 @@
+.js-promo-carousel{
+	//hiding all slides other than first on page load
+	& > *:not(:first-child){
+		display: none;
+	}
+}
+
+//.slick-track{
+//	display: flex !important;
+//
+//	.slick-slide{
+//		display: flex !important;
+//		height: auto !important;
+//		//align-items: center; //optional
+//		//justify-content: center; //optional
+//	}
+//}
+
+.slick-track{
+	display: flex;
+	
+	.slick-slide {
+		height: auto;
+		
+		> div {
+			height: 100%;
+		}
+		
+	}
+}

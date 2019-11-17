@@ -33,7 +33,7 @@ QuickNav.prototype.init = function(){
 
 	const observer = new IntersectionObserver((entries) => {
 
-		console.log( entries );
+		//console.log( entries );
 
 		entries.forEach(entry => {
 
@@ -42,7 +42,7 @@ QuickNav.prototype.init = function(){
 				var $entryId    = entry.target.id;
 				var $activeEl   = this.$quickNavAnchor.find( `[data-target=${$entryId}]` );
 
-				console.log( $entryId, $activeEl );
+				//console.log( $entryId, $activeEl );
 
 				this.$quickNavItems.removeClass( 'kw-is-active' );
 				$activeEl.addClass('kw-is-active');

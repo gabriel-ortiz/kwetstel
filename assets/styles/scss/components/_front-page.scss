@@ -1,12 +1,14 @@
  .front-page-hero{
 	 position: relative;
 	 background-color: get-color(primary);
-	 height: 60vh;
 
 	 box-sizing: border-box;
 	 
 	 @include breakpoint(medium){
-		 height: 80vh;
+		 padding-bottom: $spacer
+	 }
+	 
+	 @include breakpoint(large){
 		 padding: $spacer*2 0;
 	 }
 	 
@@ -14,23 +16,31 @@
  
  .kw-front-page__title-wrapper{
 	 position: relative;
+	 box-sizing: border-box;
+	 background-color: rgba( get-color(white), .85 );
+	 padding: $spacer;
 	 
-	 @include breakpoint(medium){
+	 @include breakpoint(large){
 		 position: absolute;
 		 right: 0;
 		 top: $spacer;
 		 max-width: 33%;
-		 min-height: 250px;
-		 padding: $spacer*2;
-		 box-sizing: border-box;
-		 background-color: rgba( get-color(white), .85 );
 		 text-align: right;
 		 z-index: 1;
 		 
 	 }
 	 
+	 @include breakpoint(xlarge){
+		 padding: $spacer*2 $spacer*4 $spacer*2 $spacer;
+	 }
+	 
 	 .kw-font-page__title{
-		
+		display: none;
+		 
+		 @include breakpoint(medium){
+			 display: initial;
+			 margin-bottom: $spacer;
+		 }
 	 }
 	 
 	 .kw-front-page__summary{
@@ -45,17 +55,108 @@
 	 @extend .kw-u-transition;
 	 position: absolute;
 	 color: get-color(black);
+	 right: 0;
 	 bottom: 0;
-	 right: $spacer*3;
 	 background-color: get-color(white);
-	 padding: $spacer;
+	 padding: $spacer/2;
 	 box-sizing: border-box;
 	 text-transform: Capitalize;
 	 font-weight: bold;
-	 font-size: $font-xl;
+	 z-index: 2;
 	 
 	 .fas{
 		 animation-iteration-count: 5;
 	 }
 	 
+	 @include breakpoint(large){
+		 padding: $spacer;
+		 font-size: $font-xl;
+		 right: $spacer*3;
+		
+	 }
+	 
  }
+ 
+ /**
+    Carousel
+  */
+ 
+ .kw-front-page__carousel{
+	 height: 60vh;
+	
+	 .slick-list,
+	 .slick-track {
+		 height: 100%;
+		 display: flex;
+	 }
+	 
+	 .slick-slide{
+		 @extend .kw-u-transition;
+		 width: 90vw !important;
+		height: 100% !important;
+		 padding: $spacer/2;
+		box-sizing: border-box;
+		 
+		 @include breakpoint(large){
+			 width: 66vw !important;
+			 padding: 0 $spacer;
+		 }
+
+		 
+		 &:not( .slick-active ){
+			 opacity: .3;
+		 }
+		 
+		 > div {
+			 height: 100%;
+		 }
+	 }
+ }
+
+.kw-front-page-carousel__slide{
+	height: 100%;
+	border-radius: $global-radius;
+	overflow: hidden;
+	
+	.kw-front-page__carousel-img,
+	.kw-front-page__carousel-video{
+		height: 100%;
+	}
+	
+	.kw-front-page__carousel-img{
+		position: relative;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: get-color(dark-gray);
+		
+		
+		& .kw-front-page__carousel-cta{
+			@extend .kw-u-transition;
+			@extend .kw-u-weight-medium;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background-color: rgba( get-color(black), .85 );
+			padding: $spacer/2;
+			box-sizing: border-box;
+			border-radius: $global-radius;
+			overflow: hidden;
+			color: get-color(white);
+			
+
+			@include breakpoint(medium){
+				padding: $spacer/2;
+				bottom: 16px;
+				left: 16px;
+				width: 75%;
+			}
+			
+			@include breakpoint(xlarge){
+				width: 50%;
+			}
+		}
+	}
+
+}
