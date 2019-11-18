@@ -50,19 +50,13 @@
 		</div>
 		
 		<!--Main menu list-->
-		<div class="kw-c-menu__inner ">
+		<div class="kw-c-menu__inner">
+			
+			<div class="h5 kw-c-menu__list-title">Menu</div>
+			
 			<?php
 				if( has_nav_menu( 'main-nav' ) ){
-					
-					$args = array(
-						'container'     => false,
-						'menu_id'       => 'kw-menu',
-						'menu_class'    => 'kw-c-menu__content',
-						'depth'         => 1,
-						//'walker'        => ''
-					);
-					
-					wp_nav_menu( $args );
+					render_kw_menu();
 				}
 				
 
@@ -72,6 +66,13 @@
 		
 		<!--Page Sections-->
 		<div class="kw-c-menu__sections">
+		
+			<?php
+				if( has_nav_menu( 'main-nav' ) ){
+					
+					get_block( 'menu_page_sections', 'main-nav' );
+				}
+			?>
 		
 		</div>
 	</div>

@@ -46,7 +46,8 @@ function kw_video( $block, $content, $is_preview, $post_id  ){
 	$cta            = array_search_key( 'kw_block__cta', $metadata );
 	$video          = array_search_key('kw_block__video_url', $metadata );
 	
-	debug_to_console( $metadata );
+	//debug
+	//debug_to_console( $metadata );
 	
 	if( !$metadata ) return;
 	

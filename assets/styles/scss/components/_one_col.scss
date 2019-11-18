@@ -19,11 +19,11 @@
 .kw-c-cta{
 	color: get-color( secondary );
 	@extend .kw-u-weight-bold;
-	padding-top: $spacer;
-	border-top: 1px solid get-color(medium-gray);
 	
 	
 	@include breakpoint(large){
+		padding-top: $spacer;
+		border-top: 1px solid get-color(medium-gray);
 		font-size: $font-lg;
 	}
 	

@@ -70,6 +70,7 @@ $menu-sizes: (
 	
 	& > * {
 		padding: 1rem;
+		box-sizing: border-box;
 	}
 	
 	& * {
@@ -183,6 +184,8 @@ $menu-sizes: (
 	background-color: get-color( secondary );
 	z-index: 2;
 	position: relative;
+	display: flex;
+	flex-direction: column;
 	
 	@include breakpoint( medium ){
 		grid-column:  2 / span 1;
@@ -199,6 +202,143 @@ $menu-sizes: (
 
 
 
+/*
+Actual Menu
+ */
+
+.kw-c-menu__list-title{
+	color: get-color(white) !important;
+	text-align: center;
+}
+
+.kw-c-menu__items-wrapper {
+	text-align: left;
+	padding-left: $spacer*2;
+	box-sizing: border-box;
+	
+	
+}
+
+.kw-c-menu__items-wrapper{
+
+}
+
+.menu-item{
+	position: relative;
+	
+	&.active{
+		
+		&:before{
+			content:'';
+			display: block;
+			position: absolute;
+			width: $spacer/2;
+			height: 100%;
+			max-height: 40px;
+			background-color: get-color(white);
+			right: 105%;
+			top: 50%;
+			border-radius: $global-radius;
+			overflow: hidden;
+			transform: translateY(-50%);
+			
+		}
+		
+		&:after{
+			
+			@include breakpoint(medium){
+				@include css-arrow( get-color(primary), 'right', 16px, absolute, false);
+				left: 104%;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 3;
+			}
+			
+
+		}
+		
+		.kw-c-menu-link{
+			opacity: 1;
+		}
+	}
+	
+}
+
+.kw-c-menu-link{
+	@extend .kw-u-transition;
+	color: get-color(white);
+	font-weight: bold;
+	font-size: $font-lg;
+	opacity: .75;
+	
+	&:hover,
+	&:focus{
+		opacity: 1;
+		color: get-color(light-blue)
+	}
+}
+
+
+.js-block-toggle{
+	margin-left: $spacer/2;
+	color: get-color(light-blue);
+	box-sizing: border-box;
+	border: 1px solid;
+	border-radius: $global-radius;
+	padding: $spacer/4;
+}
+
+/**
+Page Sections
+ */
+#kw-c-menu__sections-close{
+	text-align: right;
+	color: get-color(white);
+	font-size: 85%;
+	
+	@include breakpoint(medium){
+		display: none;
+	}
+	
+}
+
+.kw-c-menu__sections-wrapper{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
 
 
 
+.kw-c-menu__section-page{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	@extend .kw-u-transition;
+	padding-left: $spacer*2;
+	overflow-y: auto;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(15px);
+	
+	&.menu-section--active{
+		opacity: 1;
+		visibility: visible;
+		transform: translate(0);
+	}
+	
+	.kw-c-menu__sections-link{
+		margin-top: $spacer/3;
+		display: block;
+		text-transform: capitalize;
+		@extend .kw-u-transition;
+		color: get-color(white);
+		
+		&:hover,
+		&:focus{
+			color: get-color(primary);
+		}
+	}
+}

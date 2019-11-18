@@ -52,6 +52,123 @@ class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
 	}
 }
 
+
+function render_kw_menu(){
+	
+	$args = array(
+		'menu'          => 'main-nav',
+		'container'     => false,
+		'menu_id'       => 'kw-menu',
+		'menu_class'    => 'kw-c-menu__items-wrapper kw-u-clean-list',
+		'depth'         => 1,
+		'walker'        => new kw_blocks_menu()
+	);
+	
+	wp_nav_menu( $args );
+	
+}
+
+class kw_blocks_menu extends Walker_Nav_Menu {
+	
+	function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+		
+		/**
+		 * Uses the html.class.php library to simplify the element building process
+		 */
+		
+		
+		//setup some variables
+		$formatted_el   = ''; //final result returned to walker class
+		$indent         = ( $depth ) ? str_repeat("\t",$depth) : ''; //for indenting the html
+		$has_children   = $args->walker->has_children; //bool to check for link
+		$object_id      = intval( $item->object_id );
+		$has_blocks     = has_blocks($object_id );
+		
+		$li_attributes = '';
+		$class_names = $value = '';
+
+		
+		$non_link       = ($item->url == '#'); //bool to check if this is a non link item
+		
+		//get the native WP css classes
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = ( $has_children ) ? 'dropdown' : ''; //saying this parent has dropdown
+		$classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : ''; //check for active class
+		$classes[] = 'menu-item-' . $item->ID; //create a unique class with ID
+		if( $depth && $args->walker->has_children ){
+			$classes[] = 'dropdown-submenu'; //if there is depth - start submenu
+		}
+		//build the class names
+		$class_names =  join(' ', apply_filters('nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		$class_names = ' class="' . esc_attr($class_names) . '"';
+		
+		/**
+		 * Let's start building the elements inside the li tag
+		 */
+		//build the li's ID
+		$id = apply_filters('nav_menu_item_id', 'menu-item-'.$item->ID, $item, $args);
+		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+		
+		//start the output -
+		// it's important to leave this tag open, and concatenate as a string
+		$output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
+		
+		//attrs for the href
+		$href_attrs = array(
+			'title'     => esc_attr($item->attr_title),
+			'target'    => esc_attr($item->target),
+			'rel'       => esc_attr($item->xfn),
+			'href'      => ($non_link) ? '': esc_attr($item->url),
+			'class'     => ( $item->url == '#' ) ? 'kw-non-link' : 'kw-c-menu-link',
+			'text'      => $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after,
+			'aria-disabled' => ($non_link) ? 'true' : ''
+		
+		);
+		//remove any empty array keys from attrs
+		$href_attrs = array_filter($href_attrs, function($value) { return !empty( $value ); });
+		$href           = new html( 'a', $href_attrs );
+		
+		//create the chrevron element
+		$block_href        = new html('a',
+			array(
+				'href'          => '#',
+				'class'         => 'fas fa-align-left js-block-toggle',
+				'aria-label'    => 'Show blocks for page',
+				'data-trigger'  => $object_id
+			)
+		);
+		
+		//build the dropdown wrapper el
+		$dropdown_wrapper = new html( 'div',
+			array(
+				'class' => 'kw-c-menu__item-wrapper'
+			)
+		);
+		
+		//if this has children - then we wrap the link and chevron in the dropdown wrapper
+		//!IMPORTANT cast as string
+		if( $has_blocks ){
+			$formatted_el = (string) $dropdown_wrapper->append( $href, $block_href );
+		}else{
+			$formatted_el = (string) $dropdown_wrapper->append( $href );
+			
+		}
+		
+		//build the output result
+		$item_output    = $args->before;
+		$item_output   .= $formatted_el;
+		$item_output   .= $args->after;
+		
+		$output .= apply_filters ( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		
+		
+		
+	}
+	
+}
+
+
+
 class Off_Canvas_Menu_Walker_rendered extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth = 0, $args = Array() ) {
 	    $indent = str_repeat("\t",$depth);
