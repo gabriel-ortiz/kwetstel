@@ -32,7 +32,7 @@ function menu_page_sections( $menu='' ){
 		$query = new WP_Query( $args );
 	}
 	
-	debug_to_console( $query );
+	//debug_to_console( $query );
 
 	if( !$query->found_posts ){
 		debug_to_console( 'no posts found' );
@@ -71,7 +71,7 @@ function menu_page_sections( $menu='' ){
 							$id     = sanitize_title( $text );
 							$url    = get_permalink( $page->ID ) . "#${id}";
 							
-							debug_to_console( $url );
+							//debug_to_console( $url );
 							
 							?>
 							

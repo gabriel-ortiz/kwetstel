@@ -186,6 +186,12 @@ $menu-sizes: (
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	transform: translateX(100%);
+	
+	&.kw-c-menu-sections--active{
+		transform: translateX(0);
+		
+	}
 	
 	@include breakpoint( medium ){
 		grid-column:  2 / span 1;
@@ -196,6 +202,7 @@ $menu-sizes: (
 	@include breakpoint( large ){
 		grid-column:  3 / span 1;
 		grid-row: 1/span 1;
+		transform: translate(0 0);
 		
 	}
 }
@@ -219,12 +226,20 @@ Actual Menu
 	
 }
 
-.kw-c-menu__items-wrapper{
+.kw-c-menu__item-wrapper{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	
+	.kw-c-menu-link{
+		flex: 0 1 auto;
+	}
 
 }
 
 .menu-item{
 	position: relative;
+	margin-top: $spacer/2;
 	
 	&.active{
 		
@@ -244,23 +259,12 @@ Actual Menu
 			
 		}
 		
-		&:after{
-			
-			@include breakpoint(medium){
-				@include css-arrow( get-color(primary), 'right', 16px, absolute, false);
-				left: 104%;
-				top: 50%;
-				transform: translateY(-50%);
-				z-index: 3;
-			}
-			
 
-		}
+	}
 		
 		.kw-c-menu-link{
 			opacity: 1;
 		}
-	}
 	
 }
 
@@ -279,13 +283,31 @@ Actual Menu
 }
 
 
-.js-block-toggle{
+.js-section-toggle{
+	@extend .kw-u-transition;
 	margin-left: $spacer/2;
 	color: get-color(light-blue);
 	box-sizing: border-box;
-	border: 1px solid;
 	border-radius: $global-radius;
 	padding: $spacer/4;
+	max-height: 32px ;
+	
+	&.section--active{
+		border: 1px solid;
+		
+		&:after{
+			@extend .kw-u-transition;
+			
+			@include breakpoint(medium) {
+				@include css-arrow(get-color(primary), 'right', 16px, absolute, false);
+				left: 104%;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 3;
+				}
+			}
+	}
+
 }
 
 /**
@@ -296,7 +318,7 @@ Page Sections
 	color: get-color(white);
 	font-size: 85%;
 	
-	@include breakpoint(medium){
+	@include breakpoint(large){
 		display: none;
 	}
 	

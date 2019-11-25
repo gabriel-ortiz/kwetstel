@@ -75,7 +75,7 @@ class kw_blocks_menu extends Walker_Nav_Menu {
 		/**
 		 * Uses the html.class.php library to simplify the element building process
 		 */
-		
+		global $post;
 		
 		//setup some variables
 		$formatted_el   = ''; //final result returned to walker class
@@ -128,11 +128,18 @@ class kw_blocks_menu extends Walker_Nav_Menu {
 		$href_attrs = array_filter($href_attrs, function($value) { return !empty( $value ); });
 		$href           = new html( 'a', $href_attrs );
 		
+		//setup href classes
+		//if this is the active page, the add the active class to this CTA
+		$href_classes = array(
+			'fas fa-align-left js-section-toggle',
+			( $item->current ) ? 'section--active' : ''
+		);
+		
 		//create the chrevron element
 		$block_href        = new html('a',
 			array(
 				'href'          => '#',
-				'class'         => 'fas fa-align-left js-block-toggle',
+				'class'         => implode( ' ', $href_classes ),
 				'aria-label'    => 'Show blocks for page',
 				'data-trigger'  => $object_id
 			)

@@ -38,7 +38,7 @@ function quick_nav( $blocks ){
 						$id     = sanitize_title( $text );
 
 						?>
-							<a class="kw-c-quick-nav__menu-item" data-smooth-scroll data-options="offset:50" href="#<?php echo $id ?>"><?php echo $text; ?></a>
+							<a class="kw-c-quick-nav__menu-item" data-smooth-scroll data-options="offset:40" href="#<?php echo $id ?>"><?php echo $text; ?></a>
 					<?php endforeach; ?>
 					
 				</div>

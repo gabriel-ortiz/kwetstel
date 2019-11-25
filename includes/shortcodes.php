@@ -25,6 +25,7 @@ function setup() {
 	// NOTE: Uncomment to activate shortcode
 	//add_shortcode( 'example_shortcode', $n( 'example_shortcode' ) );
 	add_shortcode( 'sidebar', $n( 'sidebar_fn' ) );
+	add_shortcode( 'play_audio', $n('play_audio_fn') );
 
 }
 
@@ -53,6 +54,36 @@ function sidebar_fn($attributes = false, $content = null ){
 	
 	<?php
 	
+	$html = ob_get_contents();
+	ob_get_clean();
+	return $html;
+}
+
+function play_audio_fn($attributes = false, $content = null ){
+	//extend default attrs with values passed in
+	$data = shortcode_atts( array(
+			'src'   => '',
+			'id'    => ''
+	), $attributes );
+	
+	if( empty( $data['src'] ) ){
+		return;
+	}
+	
+	$id = sanitize_title( $data['id'] );
+	
+	
+	//output buffering start
+	ob_start();
+	//then HTML goes here
+	?>
+	<span class="kw-c-play-audio">
+		<audio class="kw-c-play-audio-id"  src="<?php echo $data['src'] ?>" preload="auto"></audio>
+		<a class="kw-c-play-audio__cta"  href="#"><?php echo $content; ?><span class="fas fa-volume-up kw-u-ml-nudge"></span></a>
+	</span>
+
+	
+	<?php
 	$html = ob_get_contents();
 	ob_get_clean();
 	return $html;

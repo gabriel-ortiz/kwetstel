@@ -1,0 +1,23 @@
+.kw-c-play-audio{
+	
+	.kw-c-play-audio-id{
+	
+	}
+	
+	.kw-c-play-audio__cta{
+		@extend .kw-u-transition;
+		@extend .kw-u-weight-bold;
+		box-sizing: border-box;
+		display: inline;
+		margin: 0 $spacer/5;
+		padding: $spacer/5 $spacer/3;
+		color: get-color(primary);
+		border-bottom: 1px dashed get-color(hunter-green);
+		
+		&:hover,
+		&:focus{
+			border-color: get-color( secondary );
+			color: get-color(secondary);
+		}
+	}
+}

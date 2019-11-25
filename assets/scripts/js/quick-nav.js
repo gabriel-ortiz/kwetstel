@@ -28,7 +28,7 @@ QuickNav.prototype.init = function(){
 	// do something
 
 	const config = {
-		rootMargin: '0px 0px -85%',
+		rootMargin: '0px 0px -80%',
 	};
 
 	const observer = new IntersectionObserver((entries) => {

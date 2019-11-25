@@ -66,6 +66,8 @@ get_header(); ?>
 					$slide_slug = array_search_key( 'kw_front_page__slide_content', $slide );
 					$slide_cta  = array_search_key( 'kw_front_page__slide_cta', $slide );
 					
+					//debug_to_console( $slide_cta );
+					
 				?>
 
 					<article class="kw-front-page-carousel__slide <?php echo $slide_type; ?>">
@@ -77,9 +79,19 @@ get_header(); ?>
 								$slide_img  = array_search_key( 'kw_front_page__image_slide', $slide );
 							?>
 								<div class="kw-front-page__carousel-img" style="background-image: url(<?php echo wp_get_attachment_image_url( $slide_img['ID'], 'full' ); ?>)" >
-									<div class="kw-front-page__carousel-cta">
-										<?php echo apply_filters( 'the_content', $slide_slug ); ?>
-									</div>
+									
+									<?php if( $slide_slug ): ?>
+										<div class="kw-front-page__carousel-cta">
+											<?php echo apply_filters( 'the_content', $slide_slug ); ?>
+											
+											<?php if( !empty( $slide_cta ) ): ?>
+												<a class="button light-blue kw-u-weight-bold" href="<?php echo $slide_cta['url'] ?>"><?php echo $slide_cta['title']; ?></a>
+											<?php endif; ?>
+										</div>
+	
+									<?php endif; ?>
+									
+
 								</div>
 								
 								
