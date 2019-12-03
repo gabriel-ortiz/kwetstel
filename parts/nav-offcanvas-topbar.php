@@ -6,10 +6,6 @@
  */
 
 global $post;
-//parse the blocks on the page
-$blocks = parse_blocks( $post->post_content );
-
-debug_to_console( $blocks );
 
 ?>
 
@@ -23,13 +19,19 @@ debug_to_console( $blocks );
 			<li class="kw-c-top-bar__site"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
 			<?php
 				//if this is a regular page, then show the page name
-				if(  ! is_front_page() ): ?>
+				if(  ! is_front_page() && is_singular() ): ?>
 					<li class="kw-c-top-bar__page"><?php echo get_the_title(); ?></li>
 			<?php endif; ?>
 			
 			<?php
 				//check to see if blocks exists on this page
-				if( has_blocks( $post->ID ) ): ?>
+				if(   is_singular() && has_blocks( $post->ID ) ):
+					//parse the blocks on the page
+					$blocks = parse_blocks( $post->post_content );
+
+					//debug_to_console( $blocks );
+					
+					?>
 				
 				<li class="kw-c-quick-nav">
 					<?php

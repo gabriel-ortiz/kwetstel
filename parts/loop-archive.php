@@ -1,25 +1,22 @@
 <?php
-/**
- * Template part for displaying posts
- *
- * Used for single, index, archive, search.
- */
+	/**
+	 * Template part for displaying posts
+	 *
+	 * Used for single, index, archive, search.
+	 */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article">					
-	
-	<header class="article-header">
-		<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-		<?php get_template_part( 'parts/content', 'byline' ); ?>
-	</header> <!-- end article header -->
-					
-	<section class="entry-content" itemprop="text">
-		<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('full'); ?></a>
-		<?php the_content('<button class="tiny">' . __( 'Read more...', 'jointswp' ) . '</button>'); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'grid-x kw-u-mt-2 grid-margin-x' ); ?> role="article">
+
+	<section class="entry-content cell small-3 medium-6 large-4" itemprop="text">
+		<a class="kw-c-archive__thumbnail" href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'full' ); ?></a>
 	</section> <!-- end article section -->
-						
-	<footer class="article-footer">
-    	<p class="tags"><?php the_tags('<span class="tags-title">' . __('Tags:', 'jointswp') . '</span> ', ', ', ''); ?></p>
-	</footer> <!-- end article footer -->	
-				    						
+
+	<header class="article-header cell small-9 medium-6 large-8">
+		<h2><a href="<?php the_permalink() ?>" rel="bookmark"
+		       title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+		<?php the_excerpt(); ?>
+	</header> <!-- end article header -->
+
+
 </article> <!-- end article -->

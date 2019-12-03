@@ -56,7 +56,7 @@ function menu_page_sections( $menu='' ){
 			if( $blocks ):
 				$classes = array('kw-c-menu__section-page');
 				$classes[] = 'kw-u-clean-list';
-				$classes[] = ($page->ID == $post->ID ) ? 'menu-section--active': '';
+				$classes[] = ( isset($post) && $page->ID == $post->ID ) ? 'menu-section--active': '';
 				
 				?>
 				

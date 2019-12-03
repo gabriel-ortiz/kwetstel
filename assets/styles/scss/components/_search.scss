@@ -1,0 +1,19 @@
+.kw-c-archive__thumbnail{
+	position: relative;
+	overflow: hidden;
+	border-radius: $global-radius;
+	display: block;
+	
+	& > * {
+		@extend .kw-u-transition;
+	}
+	
+	&:hover,
+	&:focus{
+		
+		& > img {
+			transform: scale(1.1);
+		}
+		
+	}
+}

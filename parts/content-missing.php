@@ -16,10 +16,6 @@
 			<p><?php _e( 'Try your search again.', 'jointswp' );?></p>
 		</section>
 		
-		<section class="search">
-		    <p><?php get_search_form(); ?></p>
-		</section> <!-- end search section -->
-		
 		<footer class="article-footer">
 			<p><?php _e( 'This is the error message in the parts/content-missing.php template.', 'jointswp' ); ?></p>
 		</footer>
