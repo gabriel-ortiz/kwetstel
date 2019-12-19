@@ -117,8 +117,8 @@ $menu-sizes: (
 .kw-c-menu__home-url{
 	margin-top: $spacer/2;
 	
-	@include breakpoint(medium){
-		margin-top: $spacer*2 !important;
+	@include breakpoint(xlarge){
+		margin-top: $spacer*3 !important;
 		
 	}
 	
@@ -126,11 +126,11 @@ $menu-sizes: (
 		color: get-color(white);
 		font-family: $montserrat;
 		font-weight: 700;
-		font-size: 125%;
+		font-size: 150%;
 		
-		@include breakpoint(medium){
+		@include breakpoint(xlarge){
 			
-			font-size: 200%;
+			font-size: 230%;
 			
 		}
 	}
@@ -299,8 +299,8 @@ Actual Menu
 			@extend .kw-u-transition;
 			
 			@include breakpoint(medium) {
-				@include css-arrow(get-color(primary), 'right', 16px, absolute, false);
-				left: 104%;
+				@include css-arrow(get-color(primary), 'right', 24px, absolute, false);
+				left: 101%;
 				top: 50%;
 				transform: translateY(-50%);
 				z-index: 3;

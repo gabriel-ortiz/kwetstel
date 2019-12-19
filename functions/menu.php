@@ -131,7 +131,7 @@ class kw_blocks_menu extends Walker_Nav_Menu {
 		//setup href classes
 		//if this is the active page, the add the active class to this CTA
 		$href_classes = array(
-			'fas fa-align-left js-section-toggle',
+			'fas fa-plus js-section-toggle',
 			( $item->current ) ? 'section--active' : ''
 		);
 		

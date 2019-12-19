@@ -39,13 +39,13 @@ get_header(); ?>
 		<div class="kw-front-page__title-wrapper">
 			<h1 class="kw-font-page__title"><?php echo $site; ?></h1>
 			<?php if( $excerpt ): ?>
-				<div class="kw-front-page__summary">
+				<div class="kw-front-page__summary kw-u-mt-1">
 					<?php echo $excerpt; ?>
 				</div>
 			<?php endif; ?>
 			
 			<?php if ( $enable_carousel ) : ?>
-				<div class="kw-c-carousel__action kw-u-mt-nudge">
+				<div class="kw-c-carousel__action kw-u-mt-1">
 	
 					<button class="kw-c-carousel__arrow kw-front-page__carousel-left"><span class="fas fa-chevron-left "></span></button>
 					<button class="kw-c-carousel__arrow kw-front-page__carousel-right"><span class="fas fa-chevron-right "></span></button>

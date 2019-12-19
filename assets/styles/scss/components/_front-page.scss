@@ -5,11 +5,11 @@
 	 box-sizing: border-box;
 	 
 	 @include breakpoint(medium){
-		 padding-bottom: $spacer
+		 padding-bottom: $spacer*3
 	 }
 	 
 	 @include breakpoint(large){
-		 padding: $spacer*2 0;
+		 padding: $spacer*3 0;
 	 }
 	 
  }
@@ -22,8 +22,8 @@
 	 
 	 @include breakpoint(large){
 		 position: absolute;
-		 right: 0;
-		 top: $spacer;
+		 right: $spacer-px*2;
+		 top: $spacer-px;
 		 max-width: 33%;
 		 text-align: right;
 		 z-index: 1;
@@ -31,11 +31,13 @@
 	 }
 	 
 	 @include breakpoint(xlarge){
-		 padding: $spacer*2 $spacer*4 $spacer*2 $spacer;
+		 padding: $spacer*2;
 	 }
 	 
 	 .kw-font-page__title{
 		display: none;
+		 font-weight: $global-weight-bold;
+		 line-height: 1.1;
 		 
 		 @include breakpoint(medium){
 			 display: initial;
@@ -82,8 +84,12 @@
   */
  
  .kw-front-page__carousel{
-	 height: 60vh;
-	
+	 height: 50vh;
+	 
+	 @include breakpoint(large){
+		 height: 75vh;
+	 }
+	 
 	 .slick-list,
 	 .slick-track {
 		 height: 100%;
@@ -98,7 +104,7 @@
 		box-sizing: border-box;
 		 
 		 @include breakpoint(large){
-			 width: 66vw !important;
+			 width: 70vw !important;
 			 padding: 0 $spacer;
 		 }
 
@@ -138,23 +144,22 @@
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			background-color: rgba( get-color(black), .85 );
+			background-color: rgba( get-color(black), .90 );
 			padding: $spacer/2;
 			box-sizing: border-box;
-			border-radius: $global-radius;
+			border-radius: 0  $global-radius $global-radius 0;
 			overflow: hidden;
 			color: get-color(white);
 			
 
 			@include breakpoint(medium){
 				padding: $spacer/2;
-				bottom: 16px;
-				left: 16px;
-				width: 75%;
+				bottom: 36px;
+				width: 50%;
 			}
 			
 			@include breakpoint(xlarge){
-				width: 50%;
+				width: 30%;
 			}
 		}
 	}

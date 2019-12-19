@@ -11,8 +11,14 @@
 	 * For more info: http://jointswp.com/docs/off-canvas-menu/
 	 */
 	
-	$menu_img_id = get_field( 'kw_settings__menu_featured_image', 'option' );
-?>
+
+	
+	$options = get_fields('options');
+	
+	$menu_img_id    = array_search_key( 'kw_settings__menu_featured_image', $options );
+	$menu_img_bool  = array_search_key( 'kw_settings__menu_featured_image_bool', $options );
+	
+	?>
 
 <div class="kw-c-menu off-canvas position-top" id="menu-off-canvas" data-off-canvas data-transition="overlap">
 
@@ -39,9 +45,11 @@
 
 				<div class="kw-c-menu__tagline"><?php bloginfo('description'); ?></div>
 				
-				<div class="kc-c-menu__masthead-img-wrapper flex-container align-center-middle kw-u-mt-1">
-					<?php echo wp_get_attachment_image( $menu_img_id, 'medium-large', true , array( 'class' => 'kw-c-menu__masthead-img show-for-large' ) ); ?>
-				</div>
+				<?php if( $menu_img_bool ): ?>
+					<div class="kc-c-menu__masthead-img-wrapper flex-container align-center-middle kw-u-mt-1">
+						<?php echo wp_get_attachment_image( $menu_img_id, 'medium-large', true , array( 'class' => 'kw-c-menu__masthead-img show-for-large' ) ); ?>
+					</div>
+				<?php endif; ?>
 
 			</div>
 			

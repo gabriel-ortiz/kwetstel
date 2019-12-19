@@ -25,6 +25,25 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5dfad890746ec",
+            "label": "Menu Show Full Color Featured Image",
+            "name": "kw_settings__menu_featured_image_bool",
+            "type": "true_false",
+            "instructions": "You have the option of showing this featured image in the menu in two ways. If \"yes\", the menu will have a full color version of the image underneath the Website name. If \"No\" then the featured image will only be a background image",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Show the full colored image underneath website title",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -44,5 +63,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1569281478
+    "modified": 1576721735
 }
