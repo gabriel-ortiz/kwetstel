@@ -3,7 +3,8 @@ $offcanvas-full-screen-side: right;
 $offcanvas-full-screen-closebutton-size: 5rem;
 $menu-sizes: (
 		small   : 100%,
-		medium  : 400px
+		medium  : 400px,
+		large   : 600px
 );
 
 .kw-c-sidebar {
@@ -40,6 +41,17 @@ $menu-sizes: (
 }
 
 .kw-c-sidebar__content{
+	
+	a,
+	label,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6{
+		color: get-color(white) !important;
+	}
 
 }
 
@@ -66,4 +78,15 @@ $menu-sizes: (
 	p{
 		display: inline;
 	}
+}
+
+//special classes for contact form 7
+
+.wpcf7-submit{
+	@extend .button;
+	@extend .white;
+}
+
+div.wpcf7-mail-sent-ok{
+	border-color: get-color(secondary);
 }

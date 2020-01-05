@@ -76,7 +76,7 @@
 							$featured_class     =  ($img === reset($imgs ) && $featured_img ) ? 'kw-c-img-grid__featured' : '';
 							$img_thumb          = $img['sizes']['medium_large'];
 							$img_url            = $img['url'];
-							$caption            = $img['caption'];
+							$caption            = $img['description'];
 							$alt                = $img['alt'];
 							$title              = $img['title'];
 							
@@ -89,7 +89,7 @@
 							   data-type="image"
 							   data-caption="<?php echo $caption; ?>"
 							   alt="<?php echo $alt ?>"
-							   <?php echo ( ! $admin ) ? "data-fancybox='${slug}'" : ''; ?>
+							   <?php echo ( ! $admin ) ? "data-fancybox='${slug}_group'" : ''; ?>
 							>
 								<img src="<?php echo $img_thumb ?>" />
 								

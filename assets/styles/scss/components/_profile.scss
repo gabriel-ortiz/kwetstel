@@ -1,0 +1,17 @@
+.kw-c-profile{
+
+}
+
+.kw-c-profile__img-wrapper{
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+	height: auto;
+	overflow: hidden;
+	border-radius: 50%;
+	
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
