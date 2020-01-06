@@ -47,12 +47,13 @@
 		$display_name       = array_search_key( 'display_name', $metadata );
 		$user_description   = array_search_key( 'user_description', $metadata );
 		$user_email         = array_search_key( 'user_email', $metadata );
-		$user_id            = array_search_key( 'ID', $metadata );
+		$user               = array_search_key(  'kw_block__user', $metadata );
+		$user_id            = array_search_key( 'ID', $user );
 		$user_title         = get_field( 'kw_user__title', "user_${user_id}"  );
 		$user_img           = get_field( 'kw_user__profile_img', "user_${user_id}" );
 		
 		
-		debug_to_console( $user_img );
+		//debug_to_console( gettype( $user ) );
 		
 		
 		?>
@@ -64,13 +65,19 @@
 					
 					<header class="cell small-12 medium-4 large-3 kw-c-profile__promo">
 						
-						<div class="kw-c-profile__img-wrapper">
-							<?php echo wp_get_attachment_image( $user_img['ID'], 'full', true  ); ?>
-						</div>
+						<?php if( $user_img ): ?>
+							<div class="kw-c-profile__img-wrapper">
+								<?php echo wp_get_attachment_image( $user_img['ID'], 'full', true  ); ?>
+							</div>
+						<?php endif; ?>
 						
-						<div class="h3 kw-c-block__title kw-u-mt-1" role="heading" aria-level="2"><?php echo $display_name; ?></div>
+						<?php if( $display_name ): ?>
+							<div class="h3 kw-c-block__title kw-u-mt-1" role="heading" aria-level="2"><?php echo $display_name; ?></div>
+						<?php endif; ?>
 						
-						<div class="kw-c-profile__user-title kw-u-weight-bold kw-u-mt-nudge"><?php echo $user_title; ?></div>
+						<?php if( $user_title ): ?>
+							<div class="kw-c-profile__user-title kw-u-weight-bold kw-u-mt-nudge"><?php echo $user_title; ?></div>
+						<?php endif; ?>
 						
 						<?php if( $cta ): ?>
 							<div class="kw-c-cta kw-u-mt-1"><?php echo apply_filters( 'the_content', $cta ); ?></div>
@@ -78,7 +85,9 @@
 					
 					</header>
 					
-					<div class="cell small-12 medium-7 kw-c-col__main"><?php echo apply_filters( 'the_content', $user_description ); ?></div>
+					<?php if( $user_description ): ?>
+						<div class="cell small-12 medium-7 kw-c-col__main"><?php echo apply_filters( 'the_content', $user_description ); ?></div>
+					<?php endif; ?>
 				
 				</div>
 			
