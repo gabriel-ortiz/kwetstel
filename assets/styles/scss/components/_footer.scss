@@ -1,9 +1,27 @@
-#kw-c-footer{
+#kw-c-footer {
 	min-height: 200px;
 	background-color: get-color(dark-gray);
 	color: get-color(white);
+	position: relative;
 	
-	@include breakpoint(medium){
+	.kw-c-footer__img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0.075;
+		filter: grayscale(.8);
+		object-fit: cover;
+		object-position: center;
+	}
+	
+	& > *:not(.kw-c-footer__img){
+		position: relative;
+	}
+	
+	
+	@include breakpoint(medium) {
 		min-height: 300px;
 		
 	}

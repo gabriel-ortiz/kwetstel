@@ -88,9 +88,11 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		min-height: 75px;
-		padding: $spacer;
+		min-height: 50px;
+		padding: $spacer/2;
 		background-color: rgba( get-color( primary ), .7 );
 		color: get-color(white);
+		display: flex;
+		align-items: center;
 	}
 }
