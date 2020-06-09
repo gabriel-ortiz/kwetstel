@@ -1,4 +1,6 @@
 {
+    "name": "gabrielortiz/kwetstel-theme",
+    "description": "A custom wordpress theme for the Kwetstel site",
     "require": {
         "johnbillion/extended-cpts": "^4.2"
     }
