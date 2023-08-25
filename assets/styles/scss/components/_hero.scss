@@ -1,79 +1,72 @@
-.kw-c-hero{
+.kw-c-hero {
 	@include shadow-gradient();
-	margin-bottom: $spacer*3;
+	margin-bottom: $spacer * 3;
 	box-shadow: $focus-box-shadow-lg;
 	background-color: get-color(medium-gray);
 	@extend .kw-u-transition;
-	
-	
-	@include breakpoint(medium){
-		margin-bottom: $spacer*4;
-		
+
+	@include breakpoint(medium) {
+		margin-bottom: $spacer * 4;
 	}
-	
-	&.kw-c-hash-img{
+
+	&.kw-c-hash-img {
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
 	}
-
 }
 
-.kw-c-hero__inner{
-	padding: $spacer;
+.kw-c-hero__inner {
+	box-sizing: border-box;
+	padding: $spacer * 4;
 	position: relative;
-	
-	@include breakpoint(large){
-		padding: $spacer*2;
+
+	@include breakpoint(large) {
+		padding: $spacer * 10;
 	}
-	
+
 	& > * {
 		@extend .kw-u-transition;
 	}
-
 }
 
-.kw-c-hero__title{
+.kw-c-hero__title {
 	color: get-color(white);
-	margin-bottom: $spacer*2;
+	margin-bottom: 0;
 	text-shadow: 0 2px 3px get-color(black);
 	opacity: 0;
-	
-	@include breakpoint( medium){
-		margin-bottom: $spacer*4;
-		
-	}
-	
-	@include breakpoint( medium){
-		margin-bottom: $spacer*5;
-		
-	}
+
+	// @include breakpoint( medium){
+	// 	margin-bottom: $spacer*4;
+
+	// }
+
+	// @include breakpoint( medium){
+	// 	margin-bottom: $spacer*5;
+
+	// }
 }
 
-.kw-c-hero__excerpt{
+.kw-c-hero__excerpt {
 	font-weight: 500;
 	padding: $spacer/2;
 	color: get-color(white);
 	border: 1px solid get-color(secondary);
 	border-radius: $global-radius;
-	
-	@include breakpoint(medium){
+
+	@include breakpoint(medium) {
 		color: get-color(secondary);
 		border: 0;
-		background-color: get-color( light-blue );
+		background-color: get-color(light-blue);
 		box-shadow: $focus-box-shadow-lg;
 		position: absolute;
 		bottom: 0;
 		transform: translateY(50%);
-		
 	}
-	
-	@include breakpoint(large){
+
+	@include breakpoint(large) {
 		padding: $spacer;
 		font-weight: 700;
 		text-transform: uppercase;
-
 	}
-
 }
-

@@ -15,7 +15,6 @@ global $post;
 		
 		<ul class="breadcrumbs kw-c-top-bar__wrapper-inner kw-u-clean-list" >
 			<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-			<li class="kw-c-menu__trigger"><a data-toggle="menu-off-canvas"><span class="fas fa-th kw-u-font-size-lg"></span></a></li>
 			<li class="kw-c-top-bar__site"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></li>
 			<?php
 				//if this is a regular page, then show the page name
@@ -42,8 +41,9 @@ global $post;
 				
 			<?php endif; ?>
 			
-			
 		</ul>
+		<div class="kw-c-menu__trigger"><a data-toggle="menu-off-canvas" title="Open Navigation"><span class="fas fa-th kw-u-font-size-lg"></span></a></div>
+
 		
 	</div>
 

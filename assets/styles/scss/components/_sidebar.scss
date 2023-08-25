@@ -1,3 +1,5 @@
+@import '~foundation-sites/scss/components/off-canvas'; 
+
 $offcanvas-full-screen-bg: get-color(primary);
 $offcanvas-full-screen-side: right;
 $offcanvas-full-screen-closebutton-size: 5rem;
@@ -78,15 +80,4 @@ $menu-sizes: (
 	p{
 		display: inline;
 	}
-}
-
-//special classes for contact form 7
-
-.wpcf7-submit{
-	@extend .button;
-	@extend .white;
-}
-
-div.wpcf7-mail-sent-ok{
-	border-color: get-color(secondary);
 }

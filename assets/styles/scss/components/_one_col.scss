@@ -1,35 +1,24 @@
-.kw-c-col{
-
-}
-
-.kw-c-block__wrapper{
-
-}
-
-.kw-c-col__promo{
-
-}
-
-.kw-c-block__title{
+.kw-c-block__title {
 	@extend .kw-u-weight-light;
 	@extend .kw-u-medium-line-height;
-	text-transform: uppercase;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+	word-break: break-word;
 }
 
-.kw-c-cta{
-	color: get-color( secondary );
+.kw-c-cta {
+	color: get-color(secondary);
 	@extend .kw-u-weight-bold;
-	
-	
-	@include breakpoint(large){
+
+	@include breakpoint(large) {
 		padding-top: $spacer;
 		border-top: 1px solid get-color(medium-gray);
 		font-size: $font-lg;
 	}
-	
 }
 
-.kw-c-col__main{
+.kw-c-col__main {
 	text-align: justify;
-
 }

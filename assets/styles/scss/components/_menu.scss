@@ -1,35 +1,41 @@
+@import "~foundation-sites/scss/components/off-canvas";
+
 $offcanvas-full-screen-bg: get-color(black);
 $offcanvas-full-screen-side: top;
 $offcanvas-full-screen-closebutton-size: 5rem;
 $menu-sizes: (
-		small   : 100vh,
-		medium  : calc( 100vh - 400px )
+	small: 100vh,
+	medium: 80vh,
 );
 
 .kw-c-menu {
-	@include off-canvas-base($background: $offcanvas-full-screen-bg, $transition: 0.3s ease-in-out);
-	@include off-canvas-position($position: $offcanvas-full-screen-side, $orientation: vertical , $sizes: $menu-sizes );
+	@include off-canvas-base(
+		$background: $offcanvas-full-screen-bg,
+		$transition: 0.3s ease-in-out
+	);
+	@include off-canvas-position(
+		$position: $offcanvas-full-screen-side,
+		$orientation: vertical,
+		$sizes: $menu-sizes
+	);
 	overflow-y: auto;
 	overflow-x: hidden;
-	
-	@include breakpoint(medium){
-		
+
+	@include breakpoint(medium) {
 		min-height: 500px;
 	}
-	
+
 	.admin-bar & {
 		margin-top: 32px;
 	}
-
 }
 
 .kw-c-menu__inner {
-	padding: 1rem;
+	padding: 16px;
 	text-align: center;
 }
 
-
-#kw-c-menu__close{
+#kw-c-menu__close {
 	@extend .kw-u-transition;
 	color: $white;
 	right: 0;
@@ -37,17 +43,17 @@ $menu-sizes: (
 	align-items: center;
 	position: relative;
 	font-size: 125%;
-	
-	& > span:first-of-type{
+
+	& > span:first-of-type {
 		font-size: 175%;
 	}
-	
+
 	&:hover {
 		color: darken($white, 30%);
 	}
 }
 
-.kw-c-menu__wrapper{
+.kw-c-menu__wrapper {
 	background-color: get-color(black);
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -57,194 +63,178 @@ $menu-sizes: (
 	grid-template-columns: 1fr;
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
-	
-	@include breakpoint( medium ){
+
+	@include breakpoint(medium) {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 1fr;
 	}
-	
-	@include breakpoint( large ){
+
+	@include breakpoint(large) {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: 1fr;
 	}
-	
+
 	& > * {
 		padding: 1rem;
 		box-sizing: border-box;
 	}
-	
+
 	& * {
 		@extend .kw-u-transition;
-		
 	}
 }
 
-.kw-c-menu__masthead{
+.kw-c-menu__trigger {
+	display: flex;
+	padding: $spacer/2 $spacer;
+}
+
+.kw-c-menu__masthead {
 	grid-row: 1 / span 1;
-	grid-column:  1 / span 1;
-	
+	grid-column: 1 / span 1;
+
 	color: get-color(white);
 	position: relative;
-	
-		.kw-c-masthead_bg-img{
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0.075;
-			filter: grayscale(.8);
-			background-position: center;
-			background-size: cover;
-			background-repeat: no-repeat;
-		}
-	
-	@include breakpoint( medium ){
-	
+
+	.kw-c-masthead_bg-img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0.075;
+		filter: grayscale(0.8);
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 
+	@include breakpoint(medium) {
+	}
 }
 
-.kw-c-menu__masthead-inner{
+.kw-c-menu__masthead-inner {
 	//padding: 0 $spacer*2;
 	text-align: center;
-	
+
 	& > * {
 		position: relative;
 	}
 }
 
-.kw-c-menu__home-url{
+.kw-c-menu__home-url {
 	margin-top: $spacer/2;
-	
-	@include breakpoint(xlarge){
-		margin-top: $spacer*3 !important;
-		
+
+	@include breakpoint(xlarge) {
+		margin-top: $spacer * 3 !important;
 	}
-	
-	a{
+
+	a {
 		color: get-color(white);
 		font-family: $montserrat;
 		font-weight: 700;
 		font-size: 150%;
-		
-		@include breakpoint(xlarge){
-			
+
+		@include breakpoint(xlarge) {
 			font-size: 230%;
-			
 		}
 	}
-
-	
 }
 
-.kw-c-menu__tagline{
+.kw-c-menu__tagline {
 	color: get-color(light-gray);
 	font-style: italic;
 	@extend .kw-u-font-size-lg;
 	margin-top: $spacer/2;
-	
 }
 
-.kw-c-menu__masthead-img{
+.kw-c-menu__masthead-img {
 	max-width: 250px;
 	width: 100%;
 	display: block;
 	//margin: $spacer auto 0 auto;
 	border-radius: $global-radius;
-	
-	@include breakpoint(xlarge){
+
+	@include breakpoint(xlarge) {
 		max-width: 300px;
 	}
-
 }
 
-.kw-c-menu__inner{
+.kw-c-menu__inner {
 	grid-row: 2 / span 1;
-	grid-column: 1/span 1;
-	background-color: get-color( primary );
-	
-	@include breakpoint( medium ){
-		grid-column:  2 / span 1;
-		grid-row: 1/span 1;
-		
+	grid-column: 1 / span 1;
+	background-color: get-color(primary);
+
+	@include breakpoint(medium) {
+		grid-column: 2 / span 1;
+		grid-row: 1 / span 1;
 	}
-	
+
 	//@include breakpoint( medium ){
 	//	grid-column:  2 / span 1;
 	//	grid-row: 1/span 1;
 	//
 	//}
-
 }
 
-.kw-c-menu__sections{
+.kw-c-menu__sections {
 	grid-row: 2 / span 1;
-	grid-column: 1/span 1;
-	background-color: get-color( secondary );
+	grid-column: 1 / span 1;
+	background-color: get-color(secondary);
 	z-index: 2;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	transform: translateX(100%);
-	
-	&.kw-c-menu-sections--active{
-		transform: translateX(0);
-		
-	}
-	
-	@include breakpoint( medium ){
-		grid-column:  2 / span 1;
-		grid-row: 1/span 1;
 
+	&.kw-c-menu-sections--active {
+		transform: translateX(0);
 	}
-	
-	@include breakpoint( large ){
-		grid-column:  3 / span 1;
-		grid-row: 1/span 1;
-		transform: translate(0,0);
-		
+
+	@include breakpoint(medium) {
+		grid-column: 2 / span 1;
+		grid-row: 1 / span 1;
+	}
+
+	@include breakpoint(large) {
+		grid-column: 3 / span 1;
+		grid-row: 1 / span 1;
+		transform: translate(0, 0);
 	}
 }
-
-
 
 /*
 Actual Menu
  */
 
-.kw-c-menu__list-title{
+.kw-c-menu__list-title {
 	color: get-color(white) !important;
 	text-align: center;
 }
 
 .kw-c-menu__items-wrapper {
 	text-align: left;
-	padding-left: $spacer*2;
+	padding-left: $spacer * 2;
 	box-sizing: border-box;
-	
-	
 }
 
-.kw-c-menu__item-wrapper{
+.kw-c-menu__item-wrapper {
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
-	
-	.kw-c-menu-link{
+
+	.kw-c-menu-link {
 		flex: 0 1 auto;
 	}
-
 }
 
-.menu-item{
+.menu-item {
 	position: relative;
 	margin-top: $spacer/2;
-	
-	&.active{
-		
-		&:before{
-			content:'';
+
+	&.active {
+		&:before {
+			content: "";
 			display: block;
 			position: absolute;
 			width: $spacer/2;
@@ -256,110 +246,107 @@ Actual Menu
 			border-radius: $global-radius;
 			overflow: hidden;
 			transform: translateY(-50%);
-			
 		}
-		
-
 	}
-		
-		.kw-c-menu-link{
-			opacity: 1;
-		}
-	
+
+	.kw-c-menu-link {
+		opacity: 1;
+	}
 }
 
-.kw-c-menu-link{
+.kw-c-menu-link {
 	@extend .kw-u-transition;
 	color: get-color(white);
 	font-weight: bold;
 	font-size: $font-lg;
-	opacity: .75;
-	
+	opacity: 0.75;
+
 	&:hover,
-	&:focus{
+	&:focus {
 		opacity: 1;
-		color: get-color(light-blue)
+		color: get-color(light-blue);
 	}
 }
 
-
-.js-section-toggle{
+.js-section-toggle {
 	@extend .kw-u-transition;
 	margin-left: $spacer/2;
 	color: get-color(light-blue);
 	box-sizing: border-box;
 	border-radius: $global-radius;
 	padding: $spacer/4;
-	max-height: 32px ;
-	
-	&.section--active{
+	max-height: 32px;
+
+	&.section--active {
 		border: 1px solid;
-		
-		&:after{
+
+		&:after {
 			@extend .kw-u-transition;
-			
+
 			@include breakpoint(medium) {
-				@include css-arrow(get-color(primary), 'right', 24px, absolute, false);
+				@include css-arrow(
+					get-color(primary),
+					"right",
+					24px,
+					absolute,
+					false
+				);
 				left: 101%;
 				top: 50%;
 				transform: translateY(-50%);
 				z-index: 3;
-				}
 			}
+		}
 	}
-
 }
 
 /**
 Page Sections
  */
-#kw-c-menu__sections-close{
+#kw-c-menu__sections-close {
 	text-align: right;
 	color: get-color(white);
 	font-size: 85%;
-	
-	@include breakpoint(large){
+
+	@include breakpoint(large) {
 		display: none;
 	}
-	
 }
 
-.kw-c-menu__sections-wrapper{
+.kw-c-menu__sections-wrapper {
 	position: relative;
 	height: 100%;
 	width: 100%;
 }
 
-
-
-.kw-c-menu__section-page{
+.kw-c-menu__section-page {
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	@extend .kw-u-transition;
-	padding-left: $spacer*2;
+	padding-left: $spacer * 2;
 	overflow-y: auto;
 	visibility: hidden;
 	opacity: 0;
 	transform: translateY(15px);
-	
-	&.menu-section--active{
+
+	&.menu-section--active {
 		opacity: 1;
 		visibility: visible;
 		transform: translate(0);
 	}
-	
-	.kw-c-menu__sections-link{
+
+	.kw-c-menu__sections-link {
 		margin-top: $spacer/3;
 		display: block;
 		text-transform: capitalize;
 		@extend .kw-u-transition;
 		color: get-color(white);
-		
+
 		&:hover,
-		&:focus{
+		&:focus {
 			color: get-color(primary);
 		}
 	}

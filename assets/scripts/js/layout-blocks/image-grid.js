@@ -8,28 +8,25 @@
  * {Description}
  */
 
-const $ = require( 'jQuery' );
+const $ = require("jquery");
+require("@fancyapps/fancybox");
 
-
-var ImgGrid = function(el){
-
-	this.$el           = $(el);
-	this.$wrapper      = this.$el.find( '.kw-c-block__wrapper' );
-	this.groupName     = this.$wrapper.attr( 'id' );
+var ImgGrid = function (el) {
+	this.$el = $(el);
+	this.$wrapper = this.$el.find(".kw-c-block__wrapper");
+	this.groupName = this.$wrapper.attr("id");
 
 	//console.log( this.groupName );
-
 
 	this.init();
 };
 
-ImgGrid.prototype.init = function(){
+ImgGrid.prototype.init = function () {
 	// do something
 };
 
-$(document).ready(function(){
-	$('.kw-c-img-grid').each(function(){
+$(document).ready(function () {
+	$(".kw-c-img-grid").each(function () {
 		new ImgGrid(this);
 	});
-
 });

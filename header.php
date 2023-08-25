@@ -25,8 +25,6 @@
 	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
         <!-- Icons & Favicons -->
         <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-        <link href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-icon-touch.png"
-              rel="apple-touch-icon"/>
 	<?php } ?>
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">

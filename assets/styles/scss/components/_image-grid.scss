@@ -1,11 +1,11 @@
-.kw-c-img-grid{
+.kw-c-img-grid {
 	position: relative;
-	
-	&:before{
+
+	&:before {
 		display: block;
 		position: absolute;
-		content: '';
-		background-color: rgba( get-color( hunter-green ), .1 );
+		content: "";
+		background-color: rgba(get-color(hunter-green), 0.1);
 		z-index: -1;
 		height: 70%;
 		max-height: 500px;
@@ -14,83 +14,78 @@
 		right: -30px;
 		border-radius: $global-radius;
 		transform: translateY(50px);
-
-		
 	}
-
 }
 
-.kw-c-img-grid__img-wrapper{
+.kw-c-img-grid__img-wrapper {
 	display: grid;
 	grid-auto-rows: auto;
 	grid-template-columns: 1fr;
 	grid-gap: $spacer;
-	
-	@include breakpoint( medium ){
+
+	@include breakpoint(medium) {
 		grid-template-columns: repeat(2, 1fr);
 	}
-	
-	@include breakpoint( large ){
+
+	@include breakpoint(large) {
 		grid-template-columns: repeat(3, 1fr);
 	}
-	
-	
 }
 
-.kw-c-img-grid__img{
+.kw-c-img-grid__img {
 	position: relative;
 	overflow: hidden;
 	border-radius: $global-radius;
-	
+
+	img {
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
 	& > * {
 		@extend .kw-u-transition;
 	}
-	
+
 	&:hover,
-	&:focus{
-		
+	&:focus {
 		& > img {
 			transform: scale(1.1);
 		}
-		
-		.kw-c-img-grid__title{
-			background-color: get-color( primary );
+
+		.kw-c-img-grid__title {
+			background-color: get-color(primary);
 		}
-		
 	}
-	
-	&.kw-c-img-grid__featured{
-		
-		@include breakpoint(medium){
-			grid-column:  1 / span 2;
+
+	&.kw-c-img-grid__featured {
+		@include breakpoint(medium) {
+			grid-column: 1 / span 2;
 			//grid-row: 1 / span 2;
 		}
-		
-		@include breakpoint( large ){
-			grid-column:  1 / span 2;
+
+		@include breakpoint(large) {
+			grid-column: 1 / span 2;
 			grid-row: 1 / span 2;
 		}
-		
 	}
-	
+
 	.kw-c-img-expand {
 		position: absolute;
 		right: 10px;
 		top: 10px;
 		font-size: $font-xl;
-		color: get-color( light-blue );
-
-		
+		color: get-color(light-blue);
 	}
-	
-	.kw-c-img-grid__title{
+
+	.kw-c-img-grid__title {
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		width: 100%;
 		min-height: 50px;
 		padding: $spacer/2;
-		background-color: rgba( get-color( primary ), .7 );
+		background-color: rgba(get-color(primary), 0.7);
 		color: get-color(white);
 		display: flex;
 		align-items: center;

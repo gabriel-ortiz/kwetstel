@@ -2,6 +2,9 @@
     "name": "gabrielortiz/kwetstel-theme",
     "description": "A custom wordpress theme for the Kwetstel site",
     "require": {
-        "johnbillion/extended-cpts": "^4.2"
+        "johnbillion/extended-cpts": "^5.0.2"
+    },
+    "require-dev": {
+        "paulthewalton/acf-stubs": "*"
     }
 }
