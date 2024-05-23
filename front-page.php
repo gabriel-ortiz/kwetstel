@@ -37,16 +37,16 @@ get_header(); ?>
 		?>
 		<section id="page-hero" class="front-page-hero">
 
-			<div class="kw-front-page__title-wrapper">
+			<div class="kw-front-page__title-wrapper kw-u-box-shadow">
 				<h1 class="kw-font-page__title"><?php echo $site; ?></h1>
 				<?php if ($excerpt) : ?>
-					<div class="kw-front-page__summary kw-u-mt-1">
+					<div class="kw-front-page__summary">
 						<?php echo $excerpt; ?>
 					</div>
 				<?php endif; ?>
 
 				<?php if ($enable_carousel) : ?>
-					<div class="kw-c-carousel__action kw-u-mt-1">
+					<div class="kw-c-carousel__action">
 
 						<button class="kw-c-carousel__arrow kw-front-page__carousel-left"><span class="fas fa-chevron-left "></span></button>
 						<button class="kw-c-carousel__arrow kw-front-page__carousel-right"><span class="fas fa-chevron-right "></span></button>
@@ -57,7 +57,7 @@ get_header(); ?>
 			</div>
 
 			<?php if ($enable_carousel) : ?>
-				<section class="kw-front-page__carousel-wrapper">
+				<section class="kw-front-page__carousel-wrapper grid-container">
 
 					<div class="kw-front-page__carousel <?php echo $carousel_class; ?>" data-slick='<?php echo array_to_json_string($slick_settings); ?>'>
 

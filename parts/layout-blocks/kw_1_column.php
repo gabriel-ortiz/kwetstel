@@ -66,7 +66,7 @@ function kw_1_column($block, $content, $is_preview, $post_id)
 
 			<div class="grid-x grid-margin-x grid-margin-y kw-c-col__wrapper">
 
-				<header class="cell small-12 medium-4 large-3 kw-c-col__promo">
+				<header class="cell small-12 medium-4 kw-c-col__promo">
 
 					<div class="h3 kw-c-block__title" role="heading" aria-level="2"><?php echo $title; ?></div>
 
@@ -76,7 +76,7 @@ function kw_1_column($block, $content, $is_preview, $post_id)
 
 				</header>
 
-				<div class="cell small-12 medium-8 large-9 kw-c-col__main"><?php echo apply_filters('the_content', $main); ?></div>
+				<div class="cell small-12 medium-8 kw-c-col__main"><?php echo apply_filters('the_content', $main); ?></div>
 
 			</div>
 

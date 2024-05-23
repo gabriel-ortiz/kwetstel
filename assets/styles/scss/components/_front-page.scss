@@ -1,8 +1,10 @@
 .front-page-hero {
 	position: relative;
 	background-color: get-color(primary);
-
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: $spacer/3;
 
 	@include breakpoint(medium) {
 		padding-bottom: $spacer * 3;
@@ -17,7 +19,11 @@
 	position: relative;
 	box-sizing: border-box;
 	background-color: rgba(get-color(white), 0.85);
-	padding: $spacer;
+	padding: $spacer/2;
+	display: flex;
+	flex-direction: column;
+	gap: $spacer/2;
+	border-radius: $global-radius;
 
 	@include breakpoint(large) {
 		position: absolute;
@@ -36,10 +42,10 @@
 		display: none;
 		font-weight: $global-weight-bold;
 		line-height: 1.1;
+		margin: 0;
 
 		@include breakpoint(medium) {
 			display: initial;
-			margin-bottom: $spacer;
 		}
 	}
 
@@ -52,7 +58,7 @@
 
 .kw-front-page__continue {
 	@extend .kw-u-transition;
-	position: absolute;
+	position: relative;
 	color: get-color(black);
 	right: 0;
 	bottom: 0;
@@ -62,13 +68,18 @@
 	text-transform: Capitalize;
 	font-weight: bold;
 	z-index: 2;
+	text-align: right;
 
 	.fas {
 		animation-iteration-count: 5;
 	}
 
+	@include breakpoint(medium) {
+		position: absolute;
+	}
+
 	@include breakpoint(large) {
-		padding: $spacer;
+		padding: $spacer/2;
 		font-size: $font-xl;
 		right: $spacer * 3;
 	}
@@ -79,10 +90,14 @@
   */
 
 .kw-front-page__carousel {
-	height: 50vh;
+	// height: 50vh;
 
-	@include breakpoint(large) {
-		height: 75vh;
+	// @include breakpoint(large) {
+	// 	height: 75vh;
+	// }
+
+	.slick-list {
+		overflow: visible;
 	}
 
 	.slick-list,
@@ -93,14 +108,16 @@
 
 	.slick-slide {
 		@extend .kw-u-transition;
-		width: 90vw !important;
+		// width: 90vw !important;
+		width: 85vw;
 		height: 100% !important;
-		padding: $spacer/2;
 		box-sizing: border-box;
+		aspect-ratio: auto 3 /2;
 
 		@include breakpoint(large) {
-			width: 70vw !important;
-			padding: 0 $spacer;
+			aspect-ratio: auto 2 / 1;
+
+			// width: 70vw !important;
 		}
 
 		&:not(.slick-active) {
@@ -109,6 +126,14 @@
 
 		> div {
 			height: 100%;
+		}
+	}
+
+	.slick-slide + .slick-slide {
+		margin-left: $spacer;
+
+		@include breakpoint(large) {
+			margin-left: $spacer * 1.5;
 		}
 	}
 }
