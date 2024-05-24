@@ -73,7 +73,7 @@ $montserrat: "Montserrat", sans-serif;
 
 $spacer: 1.5rem;
 $spacer-px: 24px;
-$global-font-size: 100%;
+$global-font-size: 120%;
 $global-width: rem-calc(1536);
 $global-lineheight: 1.5;
 $light-gray: #9b9c9e;
@@ -247,7 +247,7 @@ $keystroke-padding: rem-calc(2 4 0);
 $keystroke-radius: $global-radius;
 $abbr-underline: 1px dotted $black;
 
-$font-nrml: 100%;
+$font-nrml: $global-font-size;
 $font-lg: 125%;
 $font-xl: 150%;
 $font-xxl: 175%;
